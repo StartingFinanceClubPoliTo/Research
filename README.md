@@ -18,8 +18,7 @@ Each published article lives in its own top-level folder, containing:
 
 - A `README.md` describing the article, authors, and the role of each script.
 - One subfolder per analytical component (e.g. `production/`, `ebitda_montecarlo/`).
-- A `data/` folder when public datasets are committed; private working 
-  files are excluded via `.gitignore` and documented in the article README.
+- A `data/` folder when public datasets are committed
 
 ## Contacts
 
