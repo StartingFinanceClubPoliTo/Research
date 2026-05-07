@@ -1,7 +1,7 @@
 # Component-Driven EBITDA Forecast for Barrick Gold
 
 **Authors:** [Giacomo Scali](https://www.linkedin.com/in/giacomo-scali-abp01/), [Jacopo Foralosso](https://www.linkedin.com/in/jacopo-foralosso-6753a2256)  
-**Reviewer:** Salvatore Messina(https://www.linkedin.com/in/salvatore-messinaa) 
+**Reviewer:** [Salvatore Messina](https://www.linkedin.com/in/salvatore-messinaa) 
 **Published:** May 8, 2026
 
 This folder contains the code supporting the article *"A Component-Driven Methodology for EBITDA Forecasting in Gold Mining"*, which decomposes Barrick Gold's five-year EBITDA forecast into its three operational drivers: Cost of Sales, physical production, and gold price.
