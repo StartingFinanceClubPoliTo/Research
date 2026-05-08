@@ -8,8 +8,8 @@ This folder contains the code supporting the article *"A Component-Driven Method
 
 ## Structure
 
-- **`production/`** — Bottom-up SARIMA forecast of Ore Processed and Average Grade, stochastic simulation of Recovery Rate, and aggregation via Goodman's exact variance-of-products formula (Chapter 3 of the paper).
-- **`cost_of_sales/`** — 
+- **`cost_of_sales/`** — Log-Space ARIMA Master Chain of the cost-of-sales forecasting methodology (Chapter 2 of the paper).
+- **`production/`** — Bottom-up SARIMA forecast of Ore Processed and Average Grade, stochastic simulation of Recovery Rate, and aggregation via Goodman's exact variance-of-products formula (Chapter 3).
 - **`ebitda_montecarlo/`** — Black–Scholes inversion of GLD option prices and per-maturity constant-volatility calibration σ*(τ) and 10,000-path GBM Monte Carlo of the gold price combined with the deterministic CoS and Production forecasts to produce the final EBITDA distribution (Chapter 4).
 
 ## Requirements
