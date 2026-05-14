@@ -1,0 +1,34 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# VS Code / editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Pytest / coverage (if used later)
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Optional temporary outputs
+output/tmp/
+output/logs/
+
