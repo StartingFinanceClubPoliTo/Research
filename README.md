@@ -10,7 +10,7 @@ of the Starting Finance Club at Politecnico di Torino.
 
 | Year | Title | Authors | Folder |
 |------|-------|---------|--------|
-| 2026 | A Component-Driven Methodology for EBITDA Forecasting in Gold Mining | Giacomo Scali, Jacopo Foralosso | [`Component-Driven-EBITDA-Barrick/`](./Component-Driven-EBITDA-Barrick) |
+| 2026 | A Component-Driven Methodology for EBITDA Forecasting in Gold Mining | [Giacomo Scali](https://www.linkedin.com/in/giacomo-scali-abp01/), [Jacopo Foralosso](https://www.linkedin.com/in/jacopo-foralosso-6753a2256) | [`Component-Driven-EBITDA-Barrick/`](./Component-Driven-EBITDA-Barrick) |
 
 ## Repository Structure
 
