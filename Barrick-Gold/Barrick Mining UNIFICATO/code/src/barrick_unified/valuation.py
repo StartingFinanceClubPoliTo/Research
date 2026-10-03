@@ -345,6 +345,7 @@ def simulate_valuation_from_gold_paths(
     gold_price_usd_per_oz: np.ndarray,
     wacc_shocks: np.ndarray,
     terminal_policy: str = "legacy_positive",
+    additional_quarterly_margin_usd_mn: np.ndarray | None = None,
 ) -> ValuationResult:
     """Value Barrick from external quarterly gold paths.
 
@@ -380,6 +381,11 @@ def simulate_valuation_from_gold_paths(
         * inputs.production_koz[None, :]
         / 1000.0
     )
+    if additional_quarterly_margin_usd_mn is not None:
+        additional = np.asarray(additional_quarterly_margin_usd_mn, dtype=float)
+        if additional.shape != expected_gold_shape or not np.isfinite(additional).all():
+            raise ValuationInputError("additional operating margins must be finite and aligned with gold quarters")
+        quarterly_margin = quarterly_margin + additional
     annual_margin = quarterly_margin.reshape(
         inputs.n_simulations, inputs.n_years, 4
     ).sum(axis=2)

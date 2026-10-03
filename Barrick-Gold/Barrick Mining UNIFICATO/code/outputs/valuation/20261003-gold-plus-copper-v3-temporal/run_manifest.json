@@ -1,0 +1,178 @@
+{
+  "status": "CONDITIONAL_OPERATING_VALUE_PROXY_NOT_CORPORATE_FAIR_VALUE",
+  "market_snapshot": "2026-09-02T20:00:00Z",
+  "generated_at_utc": "2026-10-03T13:34:56.259421+00:00",
+  "copper_calibration_dir": "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\oos_local\\calibrations\\2026-09-02",
+  "calibration_manifest_sha256": "1EBABB2A27D41ED661CB1DBEC725A34A3F3A9E5974B187B1265BB786A6B017F3",
+  "copper_operating_config_sha256": "C6B320504368EE1852FFA03EEDBB569D42D4D544B0D73FC0B8A5558DF97E7827",
+  "gold_experiment_config_sha256": "93AB9FF5778508E9E6863EC20FEDFF45B11557DC0721F5E8776ADD8969B86845",
+  "gold_base_config_sha256": "FF3B4EA43CB2BD4CB40AFBF18217C85FFED1FAECB0ED9ED45BC26577D61119C4",
+  "gold_common_input_hashes": {
+    "operating_production_koz": "B4F99BFC78C99D819257F05A7CC1F5B12AC84A03FF8C8180DF03E3CB5EB02EE4",
+    "operating_cost_usd_per_oz": "27B60B98E21FB65A3B1F98E91BAE9896FE5AD6A2640BDB090C4FAD72F30424C8",
+    "unified_dcf": "69E9B341A3B5ABC0628D7891533249EAD8812B6D6783A08815596BD4B0D0A5C3",
+    "unified_wacc_parameters": "056EAE5FE2D43F252600240268C4D631E8C742D9CDC5AD4AB50C6C0ADC4A38E9",
+    "equity_bridge": "4F28B8DD8E9FCAFB8ACF8CA12B9370C2EB64B7793DEA0EF5D1EA315C8E15F18F",
+    "common_gold_scenario": "4D32D8C75743CAB133D6839366D1927D03560D5C1CCDBEA4C8A26B5170C813C8"
+  },
+  "gold_wacc_shocks_sha256": "82F9F59821DBB2DA513059E2308716A654406E150E119FAD2D6A76CF4A8F76B3",
+  "gold_parameter_sha256": {
+    "black_scholes": "253D9AD64BB0C67C5C78AF2AF71841879EC93B30DA205071998861576808B0C1",
+    "heston": "3FFDDC65EEF75CB046661F7B4E8B0B96637B4FBE6593EFEC076A0D2F0706E700",
+    "bates_poisson": "BB235EE66CA822B4F18971327122E4144C9EFBB45F6BBACBA91E7B3B46F7064D",
+    "full_bates_hawkes": "48BFB1432CC0FD95A5DF3748C14AFF76005EA7CD5D71E91C4672EE5EF5185203"
+  },
+  "source_code_sha256": {
+    "run_copper_valuation.py": "E4999E27325EA06600E853E553EECC2C984972B1A6096C9929B2E6FA3EEC1235",
+    "src\\barrick_unified\\copper.py": "17172D964F9490AC15070CC0C9ECA2DD91FF99B06D2F913F737A2708EE905F78",
+    "src\\barrick_unified\\valuation.py": "CAE8FF2C23C5CC8C59A03FED6C763B271B4EE259C298D2C8A5F51CA96EE69D90",
+    "src\\barrick_unified\\multimodel_valuation.py": "99B38D5C5B5BFB3DE40FAA15AADC793FD889A784DB810BD9CC94752AFE0446B2",
+    "parity\\sources\\team-8-current\\path_simulation.py": "B7C8CAFF3F82E49B777D9111B3AFE9E94983257F9583A9922AAC15EC4A399BB2"
+  },
+  "paths": 8192,
+  "copper_price_seed": 20262003,
+  "dependence_seed": 20263003,
+  "primary_horizon": "Five years, no terminal value",
+  "sensitivity_terminal": "Signed perpetuity using inherited growth/ROIC/WACC assumptions",
+  "copper_curve": {
+    "start_usd_per_lb": 6.608750000000001,
+    "last_observed_maturity_years": 0.7282683093771389,
+    "construction": "log-linear matched-HG forward anchors at actual future delivery dates; last level held flat beyond observed support",
+    "spot_forecast": false
+  },
+  "dependence": "rho=0 independent; +/-0.5 terminal Gaussian-score copula sensitivities, whole-path permutation preserving copper marginal paths; no estimated Brownian correlation",
+  "ops": {
+    "status": "CONDITIONAL_ATTRIBUTABLE_COPPER_COMPONENT_MARGIN_SCENARIO",
+    "source_period": "2026Q2",
+    "source_url": "https://s25.q4cdn.com/322814910/files/doc_financial/quarterly_results/2026/q2/Barrick_Q2_2026_Mine_Stats.pdf",
+    "source_sha256": "967251969C528C1898045302533B7F46BBABB34D0654DCCEBCAD0789A87BD63A",
+    "source_table": "Mine Statistics (Copper), three months ended June 30, physical page 8",
+    "volume_basis": "ALREADY_BARRICK_ATTRIBUTABLE; ownership retained as metadata, not multiplied again",
+    "horizon_quarters": 20,
+    "projection": "Freeze Q2 sales and unit CoS at each mine for all forward quarters; explicit scenario assumption, not a mine forecast or company guidance",
+    "mines": [
+      {
+        "mine": "Lumwana",
+        "ownership": 1.0,
+        "production_kt": 41,
+        "sales_kt": 40,
+        "cost_of_sales_usd_per_lb": 3.14,
+        "depreciation_usd_per_lb": 0.8,
+        "sustaining_capex_usd_mn": 87,
+        "project_capex_usd_mn": 146,
+        "total_capex_usd_mn": 242
+      },
+      {
+        "mine": "Zaldivar",
+        "ownership": 0.5,
+        "production_kt": 9,
+        "sales_kt": 9,
+        "cost_of_sales_usd_per_lb": 4.89,
+        "depreciation_usd_per_lb": 1.12,
+        "sustaining_capex_usd_mn": 30,
+        "project_capex_usd_mn": 23,
+        "total_capex_usd_mn": 53
+      },
+      {
+        "mine": "Jabal Sayid",
+        "ownership": 0.5,
+        "production_kt": 6,
+        "sales_kt": 5,
+        "cost_of_sales_usd_per_lb": 2.63,
+        "depreciation_usd_per_lb": 0.65,
+        "sustaining_capex_usd_mn": 2,
+        "project_capex_usd_mn": 2,
+        "total_capex_usd_mn": 4
+      }
+    ],
+    "company_totals": {
+      "production_kt": 56,
+      "sales_kt": 54,
+      "revenue_usd_mn": 697,
+      "cost_of_sales_usd_per_lb": 3.39,
+      "total_capex_usd_mn": 299
+    },
+    "rounding_note": "Mine unit costs and kt volumes are rounded source values; weighted mine CoS need not equal reported total exactly. Capex components do not sum exactly to total because total includes other capitalized amounts.",
+    "cash_flow_scope": "CoS margin added before the common methodological tax/growth/ROIC transform; NOT reconciled EBITDA/FCFF. Capex and depreciation are source facts, not additional deductions in this margin experiment.",
+    "excluded_growth_projects": [
+      "Lumwana Super Pit expansion incremental production and investment plan",
+      "Reko Diq",
+      "Norte Abierto"
+    ],
+    "terminal_policy_primary": "none",
+    "limitations": [
+      "Copper realized-price vs COMEX basis not estimated",
+      "Gold/copper dependence assumed independent, not estimated",
+      "Q/P bridge remains unvalidated",
+      "No full corporate equity bridge or per-share fair value",
+      "Mine reserves and closure obligations not modeled",
+      "Frozen gold operating-vector chronology inherited from baseline and not reforecast here"
+    ]
+  },
+  "american_approximation": {
+    "method": "600-step constant-volatility CRR futures IV, then equivalent Black-76 European bid/ask/mid",
+    "exact_for_stochastic_volatility_and_jumps": false,
+    "max_abs_adjustment_usd_per_lb": 0.0030010143720876625,
+    "max_300_600_iv_difference_bp": 3.04577632040004,
+    "note": "Tree discretization comparison; not an error bound on stochastic-model early exercise."
+  },
+  "temporal_validation": {
+    "status": "COMPLETE",
+    "origin_target_pairs": 6,
+    "admitted_dates": [
+      "2026-07-09",
+      "2026-07-20",
+      "2026-08-12",
+      "2026-08-21",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "evidence_manifest_sha256": "836ABBF5E6081F39E4E9C6BE66ED1B7C3E91237E895E9EFDD08DCC4DD299A81A",
+    "forecast_design": "conditional next-admitted-date IV repricing; structural parameters origin-only, projected variance/intensity; target matching HG forwards and as-of NSS condition scoring",
+    "limitations": [
+      "Currently discoverable contract universe has survivorship limits",
+      "Constant-volatility de-Americanization approximation",
+      "Conditional repricing is not a physical price forecast"
+    ],
+    "interpretation": "Conditional temporal IV repricing evidence; does not validate physical prices or corporate cash flows",
+    "fixed_origin_robustness": {
+      "origin_date": "2026-07-09",
+      "origin_target_pairs": 6,
+      "scope": "Fixed-first-origin robustness on the same preliminary historical pilot",
+      "evidence_manifest_sha256": "D0DFAE3CAA4FF0F737E1C523DD21645BCB304D51834045340B850ECC563C0E9A",
+      "limitations": [
+        "Currently discoverable contract universe has survivorship limits",
+        "Constant-volatility de-Americanization approximation",
+        "Conditional repricing is not a physical price forecast",
+        "Targets overlap the rolling sample; this is a robustness check, not an independent second dataset"
+      ]
+    }
+  },
+  "gold_baseline_preservation": "Frozen parameters and common gold/WACC paths; compare the same terminal policy and aggregate pathwise before percentiles",
+  "limitations": [
+    "Copper realized-price vs COMEX basis not estimated",
+    "Gold/copper dependence assumed independent, not estimated",
+    "Q/P bridge remains unvalidated",
+    "No full corporate equity bridge or per-share fair value",
+    "Mine reserves and closure obligations not modeled",
+    "Frozen gold operating-vector chronology inherited from baseline and not reforecast here",
+    "European stochastic models fitted to constant-volatility American-equivalent quotes",
+    "Reserved-strike validation is not temporal OOS",
+    "Tax/growth/ROIC margin transform is not reconciled copper cash flow",
+    "Frozen gold baseline uses company-wide Q1-Q2 actuals followed by an eight-mine forecast; actual/forecast asset scope is not yet reconciled"
+  ],
+  "files": {
+    "copper_fixed_origin_model_summary.csv": "7E64B1C194DD63129193145D3F9A40ECFA752656CD1DE0D96C85449628FCADE2",
+    "copper_forward_anchor.csv": "ED72768FE22F21900F791004A7BD3B16D3ABF4FB9F602382F839C737B6FF263C",
+    "copper_mine_quarter_scenarios.csv": "E99953AEC095F6F4AC0CE08BA7BDB2BCB1FB7D0C6CA1A433F3EA149D0B66B726",
+    "copper_model_metrics.csv": "0CDDFCFB0465A927321E3F88F4C1CEF45DB3E1830658188D29D5FA0B25432F9E",
+    "copper_model_validation.png": "C62E3F35C5582CA7BDC298A7DD8E9A2EC7811906D6BAAC2B5F17FD9E5C632F4B",
+    "copper_path_mean_diagnostics.csv": "DC2D314DCA215A4E53DDA6E908DC3710EEE18F9FE2E6E90F4029DC3975FD49E3",
+    "copper_temporal_model_summary.csv": "05D1F69EDB66A9116DEF16D70873AEDFB1F2B452BA0E5FE606557A486A0C1C25",
+    "copper_temporal_validation.json": "237956DDCC7ED3638A860ACF7A06E652CB3E36E7179E1E8EAC41FAFE065E948A",
+    "gold_plus_copper_comparison.png": "74BF88AF5FB16AB173FECB52231DD78BF69F090E9B01A30477A5269E94DA0B8F",
+    "gold_plus_copper_quantiles.csv": "291909E82BC444E9FE605641DAB5680B12F8C106EBB27EFDEC76AB946CFA7E61",
+    "gold_plus_copper_summary.csv": "FA4C8FE2861AD6E5909F45730CDBE51BFEAC81B3116A0023F723A0AEE704F587"
+  }
+}

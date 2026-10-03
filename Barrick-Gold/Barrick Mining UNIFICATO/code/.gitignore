@@ -17,3 +17,7 @@ outputs/tmp/
 *.log
 test-temp-parent/
 .pytest_cache/
+
+# Local licensed copper calibration rows
+data/processed/copper/calibration_*/
+data/raw/barrick_public/

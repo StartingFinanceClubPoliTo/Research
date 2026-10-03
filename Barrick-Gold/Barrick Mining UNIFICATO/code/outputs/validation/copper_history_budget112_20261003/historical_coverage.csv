@@ -1,0 +1,32 @@
+date,acquisition_status,raw_quotes,eligible_quotes,eligible_expiries,dense_admitted,response_timeouts,curve_date,nss_rmse_bp,exclusions
+2026-07-09,RETURNED_DATA,100,75,5,True,0.0,2026-07-09,2.639081881679035,"{""eligible"": 75, ""stale_quote"": 17, ""wide_relative_spread"": 8}"
+2026-07-10,RETURNED_DATA,104,53,5,False,0.0,2026-07-10,2.8089967055464315,"{""eligible"": 53, ""stale_quote"": 51}"
+2026-07-13,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-14,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-15,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-16,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-17,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-20,RETURNED_DATA,79,74,5,True,0.0,2026-07-20,2.9106943275022545,"{""eligible"": 74, ""wide_relative_spread"": 3, ""stale_quote"": 2}"
+2026-07-21,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-22,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-23,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-24,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-27,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-28,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-29,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-30,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-07-31,RETURNED_DATA,75,18,2,False,0.0,2026-07-31,1.737314627616562,"{""stale_quote"": 52, ""eligible"": 18, ""wide_relative_spread"": 5}"
+2026-08-03,RETURNED_DATA,73,41,5,False,0.0,2026-08-03,2.079461263534563,"{""eligible"": 41, ""stale_quote"": 32}"
+2026-08-04,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-05,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-06,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-12,RETURNED_DATA,88,82,6,True,0.0,2026-08-12,2.1470239086417324,"{""eligible"": 82, ""stale_quote"": 6}"
+2026-08-17,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-19,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-20,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-21,RETURNED_DATA,100,86,6,True,0.0,2026-08-21,1.83175826215456,"{""eligible"": 86, ""wide_relative_spread"": 14}"
+2026-08-24,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-28,NOT_PLANNED_IN_PILOT,0,0,0,False,,,,
+2026-08-31,RETURNED_DATA,97,87,6,True,0.0,2026-08-31,1.1791603313654926,"{""eligible"": 87, ""wide_relative_spread"": 10}"
+2026-09-01,RETURNED_DATA,97,65,6,True,0.0,2026-09-01,1.1003128406149614,"{""eligible"": 65, ""wide_relative_spread"": 32}"
+2026-09-02,RETURNED_DATA,99,86,6,True,0.0,2026-09-02,2.060781659512417,"{""eligible"": 86, ""wide_relative_spread"": 13}"

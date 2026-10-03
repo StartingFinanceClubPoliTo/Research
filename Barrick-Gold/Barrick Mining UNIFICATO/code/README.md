@@ -10,6 +10,13 @@ The project joins 17 students in eight teams: Stefano Falcione and Marco Fracca 
 
 ## Current authoritative experiment
 
+The [copper extension](docs/COPPER-INTEGRATION.md) is available through
+`run_copper_valuation.py`. It calibrates separate HG/HXE copper models and adds
+attributable sold-volume margins from Lumwana, Zaldívar and Jabal Sayid to the
+same gold/WACC paths. Primary results use a finite five-year horizon and remain
+conditional aggregate operating-value proxies. The frozen experiment below is
+the historical gold-only baseline; its results do not include copper.
+
 The current companion run is `20260904T130000Z-team8-refresh-v4`. It integrates the Team 8 snapshot dated 2 September 2026 while changing only the gold-price layer:
 
 - 605 eligible GLD calls, 12 expiries, 146 strikes and DTE 79--653 before sampling;
@@ -26,6 +33,43 @@ The current companion run is `20260904T130000Z-team8-refresh-v4`. It integrates 
 The primary structural scenario is selected on rolling OOS performance. The distinct in-sample Heston ranking is preserved in the configuration, output manifest and paper.
 
 The Treasury input is a continuously compounded par-yield proxy, not a bootstrapped zero curve. Different benchmark supports must not be treated as identical-support loss ratios. See the [source inventory](src/README.md) and [validation notes](docs/SEPTEMBER-VALIDATION.md).
+
+
+## Copper historical extension — October 3 local acquisition
+
+The original gold-only baseline excluded copper. The separate extension admits
+Lumwana, Zaldívar and Jabal Sayid, using already attributable sold volumes.
+Ten historical dates were acquired with about 100 spaced quote requests per date;
+7 quality-admitted surfaces produce 6 chronological pairs (480 common
+forecasts, 375 on persistence support). This is a preliminary pilot,
+not the full 31-date gold calendar. All model estimates are origin-only with
+dated Treasury curves and projected states; static strike holdout remains separate.
+No robust model-superiority claim follows from this small sample.
+
+Authoritative copper run: `outputs/valuation/20261003-gold-plus-copper-v3-temporal`;
+rolling evidence: `outputs/validation/copper_temporal_oos_budget112_20261003`;
+fixed-origin check: `outputs/validation/copper_fixed_origin_20261003`.
+The paired mean copper increment is USD 2.618–2.663 billion over five years
+without terminal value, conditional on fixed Q2 sales/CoS and the inherited
+margin-to-value assumptions. This is an aggregate operating-value proxy;
+accounting, capex, reserve life and the corporate equity bridge remain unresolved.
+The source thesis now includes the supplied corporate-perimeter revision and
+generated copper tables/figures. Licensed quote rows remain local.
+
+
+Offline copper replay uses derived parameters and aggregate forward anchors;
+option-level quotes remain local. Recalibration and historical fitting need
+authorized IB API inputs; the ten-date pilot is not a full historical universe.
+
+```bash
+python run_copper_valuation.py --calibration-dir data/processed/copper/snapshot_20260902 --oos-dir outputs/validation/copper_temporal_oos_budget112_20261003 --fixed-oos-dir outputs/validation/copper_fixed_origin_20261003 --output-dir outputs/valuation/<fresh-copper-run>
+```
+
+Use `--gold-config config/multimodel_copper_paper_audited_20260907.json` for the
+Paper's revised gold parameters; this is a different paired experiment.
+Install `.[test,copper]` for historical acquisition/fitting, or the ordinary
+runtime dependencies for aggregate replay.
+
 
 ## Research architecture
 

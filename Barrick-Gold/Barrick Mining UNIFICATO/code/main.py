@@ -6,6 +6,10 @@ from pathlib import Path
 import sys
 import subprocess
 
+if __name__ == "__main__" and "--copper-valuation" in sys.argv[1:]:
+    arguments = [arg for arg in sys.argv[1:] if arg != "--copper-valuation"]
+    raise SystemExit(subprocess.call([sys.executable, str(Path(__file__).resolve().parent / "run_copper_valuation.py"), *arguments]))
+
 if __name__ == "__main__" and "--paper-audit" in sys.argv[1:]:
     arguments = [arg for arg in sys.argv[1:] if arg != "--paper-audit"]
     raise SystemExit(subprocess.call([sys.executable, str(Path(__file__).resolve().parent / "paper_audit" / "main.py"), *arguments]))

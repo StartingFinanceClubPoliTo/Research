@@ -20,6 +20,7 @@ barrick-unified = "barrick_unified.cli:main"
 
 [project.optional-dependencies]
 test = ["pytest>=8,<10"]
+copper = ["ib_insync>=0.9.86,<1", "nelson-siegel-svensson>=0.5,<1"]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

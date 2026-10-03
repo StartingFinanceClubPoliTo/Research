@@ -1,3 +1,4 @@
-# Frozen evidence is byte-hashed. Preserve original LF/CRLF/mixed bytes on checkout.
-/parity/sources/** -text
-/data/manifests/** -text
+# Preserve frozen derived input/output bytes used by SHA-256 manifests.
+data/processed/copper/** -text
+outputs/validation/copper*/** -text
+outputs/valuation/*gold-plus-copper*/** -text

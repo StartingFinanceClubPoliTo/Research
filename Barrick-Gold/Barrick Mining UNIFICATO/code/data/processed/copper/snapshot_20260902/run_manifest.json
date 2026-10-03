@@ -1,0 +1,57 @@
+{
+  "filter_config": {
+    "max_quote_age_seconds": 120.0,
+    "max_relative_spread": 0.2,
+    "min_implied_vol": 0.01,
+    "max_implied_vol": 2.0,
+    "chebyshev_maturities": 8,
+    "chebyshev_moneyness": 8
+  },
+  "nss_fit": {
+    "beta0": -0.0011969782319091933,
+    "beta1": 0.03857272731349019,
+    "beta2": 0.0396508142212713,
+    "beta3": 0.15731381641264372,
+    "tau1": 2.153228815021244,
+    "tau2": 16.81016459981512,
+    "rmse": 0.0002060781659512417,
+    "mae": 0.00014806348566180034,
+    "max_abs_error": 0.0005653708477388678,
+    "n_tenors": 14,
+    "success": true,
+    "objective": 4.246821048182751e-08,
+    "rmse_bps": 2.060781659512417,
+    "mae_bps": 1.4806348566180034,
+    "max_abs_error_bps": 5.653708477388678,
+    "model": "Nelson-Siegel-Svensson",
+    "fit_target": "continuous_rate",
+    "curve_date": "2026-09-02",
+    "no_lookahead": true
+  },
+  "input_rows": 99,
+  "exclusion_counts": {
+    "eligible": 86,
+    "wide_relative_spread": 13
+  },
+  "eligible_rows": 86,
+  "american_approximation": {
+    "method": "600-step constant-volatility CRR futures IV, then equivalent Black-76 European bid/ask/mid",
+    "exact_for_stochastic_volatility_and_jumps": false,
+    "max_abs_adjustment_usd_per_lb": 0.0030010143720876625,
+    "max_300_600_iv_difference_bp": 3.04577632040004,
+    "note": "Tree discretization comparison; not an error bound on stochastic-model early exercise."
+  },
+  "status": "DERIVED_PARAMETER_AND_AGGREGATE_FORWARD_REPLAY_BUNDLE",
+  "market_date": "2026-09-02T20:00:00Z",
+  "input_sha256": "41820DF9832F2A4D13795DDD841C0CECC24C518DE6CA4548F7B3291A6531525A",
+  "training_rows": 86,
+  "reserved_rows": 0,
+  "holdout_scope": "Temporal validation reported separately; no same-date reserved strikes in these origin fits",
+  "files": {
+    "copper_forward_delivery_anchors.csv": "67F593D95AE398BA2FB1139921D425F2A926064C6D714FEB74EF21534E20B614",
+    "copper_model_metrics.csv": "1EA19020DDCEBA2CB0093599A3CA165D3ECB6853F9CB321558EDBC80F14EEF68",
+    "copper_parameters.json": "7B28955651B90A038F012286C0DBB674110B20E8B7E90B9895C525CCC8621D90"
+  },
+  "source_calibration_manifest_sha256": "1EBABB2A27D41ED661CB1DBEC725A34A3F3A9E5974B187B1265BB786A6B017F3",
+  "scope": "No option-level prices, quotes, residuals or identifiers; parameter replay is distinct from market recalibration"
+}

@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "scope": "Fixed-first-origin robustness on the same preliminary historical pilot",
+  "origin_date": "2026-07-09",
+  "admitted_dates": [
+    "2026-07-09",
+    "2026-07-20",
+    "2026-08-12",
+    "2026-08-21",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02"
+  ],
+  "origin_target_pairs": 6,
+  "forecast_design": "First admitted fit frozen; variance/intensity projected to each later date; actual target forwards/as-of rates condition scoring",
+  "rolling_manifest_sha256": "836ABBF5E6081F39E4E9C6BE66ED1B7C3E91237E895E9EFDD08DCC4DD299A81A",
+  "calibration_manifest_sha256": {
+    "2026-07-09": "2701DB5024590137439E4C3352777F5660BC9177F46BAF17341FBE8167A9344F",
+    "2026-07-20": "DFD372FEA4660290700DE6BA774A51A12672558ACEFAADF45CD2B93DDAE5C22B",
+    "2026-08-12": "D35F780FDAF05FF729DB1C8FC92D64C66E7659E6E7F30E4413463FDA79BA6630",
+    "2026-08-21": "CF5671CE11D92B1E6B4BE82852160F4AB3F510EFA9358D8A2B971A547E66AA7E",
+    "2026-08-31": "694FCCA47E630AC15116E6AEFE4D5747BBDFCFA40902DB515AF61FD1565F853A",
+    "2026-09-01": "8248844AD161E4D7A9BA4C79985CC3D7AE34899E9651AAE0E241C763750836D2",
+    "2026-09-02": "1EBABB2A27D41ED661CB1DBEC725A34A3F3A9E5974B187B1265BB786A6B017F3"
+  },
+  "source_code_sha256": "BBF5F3B93B7C2AA49DC90B36761EB555E6DD225356041A50E86D386EAFE6BB01",
+  "limitations": [
+    "Currently discoverable contract universe has survivorship limits",
+    "Constant-volatility de-Americanization approximation",
+    "Conditional repricing is not a physical price forecast",
+    "Targets overlap the rolling sample; this is a robustness check, not an independent second dataset"
+  ],
+  "files": {
+    "date_metrics.csv": "F34914D403F7645BFDFA5190F24EAB13FDEA985217E0969698114A30B188DF18",
+    "model_summary.csv": "5C13C25D318865B5152CD1E57936CFAD9C8470C8C8FE760873520F7BC9F92543"
+  }
+}
