@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "origin_target_pairs": 6,
+  "admitted_dates": [
+    "2026-07-09",
+    "2026-07-20",
+    "2026-08-12",
+    "2026-08-21",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02"
+  ],
+  "evidence_manifest_sha256": "836ABBF5E6081F39E4E9C6BE66ED1B7C3E91237E895E9EFDD08DCC4DD299A81A",
+  "forecast_design": "conditional next-admitted-date IV repricing; structural parameters origin-only, projected variance/intensity; target matching HG forwards and as-of NSS condition scoring",
+  "limitations": [
+    "Currently discoverable contract universe has survivorship limits",
+    "Constant-volatility de-Americanization approximation",
+    "Conditional repricing is not a physical price forecast"
+  ],
+  "interpretation": "Conditional temporal IV repricing evidence; does not validate physical prices or corporate cash flows",
+  "fixed_origin_robustness": {
+    "origin_date": "2026-07-09",
+    "origin_target_pairs": 6,
+    "scope": "Fixed-first-origin robustness on the same preliminary historical pilot",
+    "evidence_manifest_sha256": "D0DFAE3CAA4FF0F737E1C523DD21645BCB304D51834045340B850ECC563C0E9A",
+    "limitations": [
+      "Currently discoverable contract universe has survivorship limits",
+      "Constant-volatility de-Americanization approximation",
+      "Conditional repricing is not a physical price forecast",
+      "Targets overlap the rolling sample; this is a robustness check, not an independent second dataset"
+    ]
+  }
+}

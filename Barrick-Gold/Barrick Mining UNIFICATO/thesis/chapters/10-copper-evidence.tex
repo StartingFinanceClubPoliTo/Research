@@ -1,0 +1,103 @@
+\clearpage
+\section{Copper extension: operating perimeter and temporal validation}
+\label{sec:copper-extension}
+
+The original gold-only module omits copper. The separate extension adds the
+three producing copper mines in Table~\ref{tab:copper-operating-perimeter};
+the frozen gold operating vector and price/WACC draws remain identical in
+the paired comparison. Copper mine statistics are already attributable:
+ownership is recorded for interpretation and never multiplied again
+\cite{barrick-mine-stats-2026}.
+
+\begin{table}[H]
+\centering\small
+\caption{Copper scenario inputs from the three-month Q2 2026 mine tables;
+volumes are already attributable \cite{barrick-mine-stats-2026}.}
+\label{tab:copper-operating-perimeter}
+\begin{tabularx}{\textwidth}{@{}Xrrrr@{}}
+\toprule
+Mine & Interest & Production (kt) & Sales (kt) & CoS (USD/lb) \\
+\midrule
+Lumwana & 100\% & 41 & 40 & 3.14 \\
+Zald\'ivar & 50\% & 9 & 9 & 4.89 \\
+Jabal Sayid & 50\% & 6 & 5 & 2.63 \\
+\midrule
+Total & & 56 & 54 & 3.39 reported \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Lumwana is consolidated; Zald\'ivar and Jabal Sayid are equity-accounted
+50\% interests. Their attributable operating contribution is included here,
+although their revenue and CoS are outside consolidated copper totals
+\cite{barrick-ar-2025}. The reported corporate CoS/lb is an attributable
+metric and can differ from the mine-weighted value reconstructed from rounded
+inputs. A consolidated-to-attributable cash/debt bridge therefore also applies
+to the copper extension.
+
+Sales and unit CoS are held at these Q2 levels for 20 quarters as a declared
+scenario, not as fitted mine forecasts or guidance. The quarter's reported
+capex and depreciation are retained as source facts; they are not separately
+deducted or added in the CoS-margin experiment. Expansion schedules, Reko Diq,
+reserves and closure liabilities require another operating/cash-flow model.
+For price $C_t$ in USD/lb, sales $S_{i,t}$ in attributable kt and unit CoS
+$c_{i,t}$ in USD/lb, the addition in USD millions is
+\begin{equation}
+\mathrm{CM}^{Cu}_t=\sum_i(C_t-c_{i,t})S_{i,t}
+\frac{2204.6226218488}{1000}.
+\label{eq:copper-margin}
+\end{equation}
+One kt is 1,000 tonnes; the factor converts kt to pounds then divides USD by
+one million. The total gold-plus-copper margin is formed \emph{per path}
+before the inherited tax/growth/ROIC transformation and quantiles. This is
+after-CoS operating margin, not separately reconciled EBITDA or FCFF.
+
+\paragraph{Copper price models and source dates.}
+Standard COMEX HG futures and HXE American options are quoted in USD/lb;
+every option's matching future is verified from its actual underlying
+contract identifier. A 600-step constant-volatility futures tree estimates
+American IV, then constructs equivalent European Black--76 quotes for the
+European Heston, Bates and affine Hawkes engines. The 300/600-step difference
+measures numerical discretisation sensitivity, not the error of stochastic
+de-Americanisation. The four models have their own copper calibrations.
+
+The initial 2 September static surface contains 88 real quotes, 76 eligible,
+with 62 fitted and 14 reserved strikes. Those held-out strikes test
+interpolation, not temporal OOS. The subsequent historical pilot samples ten
+dates spanning July--September, using up to 112 spaced locations over expiries
+75--250 days away. Quality filters require bid/ask validity, quote and future
+age at most 120 seconds and relative spread at most 20\%. Only dates with
+64 actual eligible quotes on at least three expiries enter temporal fitting.
+No quotes are generated to meet the threshold. This fit uses all eligible
+sampled quotes, rather than gold's fixed CC64 sample.
+
+Each origin uses only its own options and an as-of Treasury curve; its
+structural parameters are frozen while variance/intensity is projected to
+the next admitted date. Target matching futures and dated rates condition
+scoring. Common target support, origin-mean IV and persistence inside the
+origin surface's convex hull are reported explicitly. This is conditional
+IV-surface validation, not a physical price forecast. The current catalogue
+has survivorship limits and IB does not return expired-option history
+\cite{ib-historical-limitations}. Missing quotes and request timeouts are
+separate findings; timeouts do not prove historical data absence.
+
+\paragraph{Valuation boundary.}
+Copper paths follow log-linear observed forward anchors at \emph{future
+delivery dates}, holding the final level flat beyond support. Independence
+is the base gold/copper scenario; terminal Gaussian-score dependence
+$\pm0.5$ uses whole-path permutations preserving marginal distributions and
+is not an estimated Brownian correlation. The primary comparison is five
+years without terminal value; signed perpetuity is a separate sensitivity.
+The comparison retains the inherited 20-quarter simulation grid, whose gold
+vector starts with Q1--Q2 actuals although the option snapshot is 2 September.
+It does not roll the operating calendar forward to exclude elapsed quarters.
+That calendar reconciliation is required for a dated prospective DCF.
+Neither conditional forwards nor IV tests validate physical five-year copper
+prices, future mine sales, costs or corporate equity value.
+
+\IfFileExists{chapters/generated/copper-results.tex}{%
+\input{chapters/generated/copper-results}}{%
+\gapbox{Historical copper acquisition and temporal validation are in progress.
+The first static valuation is not temporally validated. Admit final coverage,
+actual origin--target scores and the new paired valuation only from completed,
+hash-verified local runs.}}

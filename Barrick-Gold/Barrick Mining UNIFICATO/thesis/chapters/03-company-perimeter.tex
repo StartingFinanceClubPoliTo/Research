@@ -1,11 +1,14 @@
 \chapter{Barrick Mining Corporation and Valuation Perimeter}
 \chapterstatus{Legal identity and listing continuity are verified from Barrick's
-official releases. The source corpus supports the operating variables and
-valuation interfaces below, but asset ownership, financial perimeter and
-structural events remain controlled inputs that must be reconciled before a
-final valuation is reported.}
+official releases. The gold operating perimeter, variable definitions, units,
+data window and forecast frequency follow the Team~4 source study
+\cite{team4}; ownership shares, accounting treatment and 2025 structural events
+are documented in Barrick's 2025 Annual Report \cite{barrick-ar-2025}.
+A separate copper extension is identified explicitly. The financial perimeter
+and equity bridge remain controlled inputs requiring reconciliation.}
 
 \section{Corporate identity and the choice of case study}
+\label{sec:company-identity}
 
 The project retained its historical working name, ``Barrick Gold'', but the
 legal issuer is now \emph{Barrick Mining Corporation}. Shareholders approved
@@ -15,93 +18,287 @@ name began on 9 May 2025; the New York Stock Exchange ticker changed from
 \texttt{ABX} \cite{barrick-name-2025}. The distinction matters whenever a
 market-price series is stitched across the corporate action.
 
-Barrick describes itself as a global gold and copper exploration, development
-and mining company \cite{barrick-about-2026}. Gold remains central, while the
-copper portfolio means that Barrick is not a one-factor claim on the gold
-price. It is nevertheless a useful case study for this project because gold,
-production and cost uncertainty can be connected to operating margin, free
-cash flow and a DCF. That connection brings the team's corporate-valuation
-interests into the same framework as its stochastic modelling work.
+The corporate action does not interrupt the operating series. Team~4 extracted
+its mine-level data from the quarterly reports published on the company's
+investor website, under the Barrick Gold Corporation name until 2025 and under
+the Barrick Mining Corporation name thereafter; both refer to the same issuer.
+Team~4 adopts the process and cost definitions of the 2024 Annual Report and
+checks its first forecast year against the 2025 report's guidance
+\cite{team4,barrick-ar-2025}. The name and ticker change affects the market
+series of Section~\ref{sec:lse-current-diagnostics} and the equity bridge,
+but not the operating panel's continuity.
+
+Barrick is a gold and copper exploration, development and mining company
+\cite{barrick-about-2026}. Its original Team~4 operating layer is narrower:
+eight gold mines, excluding copper and the remaining gold assets \cite{team4}.
+Section~\ref{sec:copper-extension} adds Lumwana, Zald\'ivar and Jabal Sayid as
+an explicit copper scenario, without rewriting the frozen gold experiment.
+Neither perimeter represents every corporate asset or a reconciled claim on
+the whole company. The case connects commodity prices, production and costs
+to component margin and a conditional DCF, bringing the team's valuation
+interests into its stochastic modelling framework.
 
 \section{The company perimeter is a model input}
+\label{sec:company-perimeter}
 
-% Sources: GAP-COMPANY-01--04, GAP-DATA-01/03/04; Team 4 MAP-T4-01--12.
-A mining-company valuation cannot define the corporate perimeter implicitly.
-The perimeter determines which production volumes, costs, taxes, royalties,
-cash flows, debt claims and shares belong in the numerator and denominator of
-the valuation. It must therefore be frozen at the valuation date and identify,
-for every admitted operating asset, the ownership basis, reporting basis,
-status and currency. The current Team material supplies a component-driven
-method, not an approved current portfolio table.
+% Sources: Team 4 Sections 1.1.2--1.1.3, 2 and 3.1; Annual Report 2025,
+% MD&A mine tables and Note 2; 2026Q1--Q2 mine statistics in Chapter 10.
+A valuation must freeze, by asset and date, the ownership and reporting basis,
+status and currency. These determine which volumes, costs, taxes, royalties,
+cash flows, debt claims and shares enter its numerator and denominator.
+Table~\ref{tab:company-operating-perimeter} records the gold perimeter.
 
-\gapbox{Populate the dated Barrick corporate and operating perimeter from
-approved primary corporate evidence. Legal name and listing continuity are
-closed; ownership shares, operating status, structural events and the choice
-between consolidated and attributable measures remain open.}
+\paragraph{Admitted assets.}
+Bulyanhulu, Carlin, Cortez, Kibali, Loulo--Gounkoto, North Mara, Pueblo Viejo
+and Turquoise Ridge form the base of the gold operating computations,
+including Chapter~10's production-weighted cost master chain. The source
+excluded copper and smaller gold operations \cite{team4}; this modelling
+choice does not demonstrate that copper is economically negligible.
+The eight mines produced 622 and 711 thousand attributable ounces in 2026Q1
+and 2026Q2 against company gold totals 719 and 796 thousand ounces
+(Chapter~10): 86.5\% and 89.3\% of attributable gold production. These are
+gold-volume coverage ratios, not corporate-revenue or value coverage.
 
-\section{Operating quantities supplied by the source programme}
-
-% Sources: Team 4 MAP-T4-01--12; CONTENT-LEDGER BG-U-10; GAP-VAL-01/02/07.
-Team 4 establishes that the operating layer is component-driven rather than a
-single revenue-growth extrapolation. Production and cost forecasts are
-estimated separately, while a stochastic commodity-price engine supplies the
-price input used in the operating distribution. This is sufficient to define
-the required contract even though it is insufficient to populate the contract
-with current Barrick figures.
+The frozen executable gold vector uses company totals of 719 and 796 koz,
+and company-wide CoS of USD~1,922 and 1,993/oz, for its first two quarters.
+From 2026Q3 it uses the eight-mine Team~4 forecast. Its first two actual
+quarters therefore have a broader asset scope than its forecast perimeter.
+This scope break remains explicit in the paired copper experiment; the
+eight-mine coverage table does not reconcile it. A consistent mine-level
+actual vector and matching aggregate costs are required before the baseline
+can be read as a strict eight-mine valuation.
 
 \begin{table}[H]
 \centering
-\caption{Corporate operating contract implied by the Team 4 source module.}
+\caption{Team~4 gold perimeter: Barrick's interest and accounting treatment
+at 31 December 2025 \cite{team4,barrick-ar-2025}.}
+\label{tab:company-operating-perimeter}
+\small
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{2.15cm}%
+>{\raggedright\arraybackslash}p{1.75cm}%
+>{\raggedright\arraybackslash}p{3.85cm}%
+>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Mine} & \textbf{Location} & \textbf{Barrick interest and accounting}
+& \textbf{Source-specific notes} \\
+\midrule
+Carlin & Nevada, USA & 61.5\% through Nevada Gold Mines; consolidated with
+38.5\% non-controlling interest (Newmont). & Reference mine: 28 quarters,
+2019Q1--2025Q4; simulated recovery in $[0.71,0.85]$. \\
+Cortez & Nevada, USA & 61.5\% through Nevada Gold Mines; as Carlin. &
+Winter seasonality in throughput. \\
+Turquoise Ridge & Nevada, USA & 61.5\% through Nevada Gold Mines; as Carlin. &
+Winter seasonality in throughput. \\
+Pueblo Viejo & Dominican Republic & 60\%; consolidated with 40\%
+non-controlling interest (Newmont). & Wet-season throughput seasonality. \\
+Kibali & DR Congo & 45\%; equity-accounted joint venture (AngloGold Ashanti
+45\%, DRC Government 10\%). & Outside consolidated revenue and CoS;
+proportionate in attributable per-ounce metrics. \\
+Loulo--Gounkoto & Mali & 80\%; consolidated with 20\% non-controlling
+interest; deconsolidated 16 June, reconsolidated 16 December 2025. & Suspended
+from 14 January; 29 thousand ounces in 2025; wet-season seasonality. \\
+North Mara & Tanzania & 84\%; consolidated with 16\% non-controlling
+interest (Government of Tanzania). & 25 quarters from separate reporting
+in 2019Q4. \\
+Bulyanhulu & Tanzania & 84\%; as North Mara. & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\paragraph{Reporting basis.}
+The operating layer is attributable. Mine-level MD\&A tables report ore
+processed, grade, recovery, ounces produced and sold and CoS on Barrick's
+share: 61.5\% for the Nevada mines, 60\% Pueblo Viejo, 45\% Kibali and
+84\% for the Tanzanian mines \cite{barrick-ar-2025}. Per-ounce CoS uses
+attributable ounces sold. Ore and the ounces it generates share one basis;
+Section~\ref{sec:company-operating-quantities}'s production identity is
+dimensionally consistent. Grade and recovery are ratios. Ownership must not
+be applied again to already attributable volumes.
+
+Legal ownership does not always equal the economic share. Under the Tanzanian
+agreement the government receives half of economic benefits through taxes,
+royalties, clearing fees and cash distributions after capital recoupment;
+earnings are recorded on Barrick's 84\% equity interest
+\cite{barrick-ar-2025}. Volume reporting is suitable for production and cost;
+the cash-flow split belongs to the tax and bridge layers.
+
+\paragraph{Data window.}
+The quarterly estimation window starts in 2019 and ends in 2025Q4 even where
+longer histories exist \cite{team4}. Leading missing production-driver values
+are removed mine by mine: Carlin contributes 28 quarters, North Mara 25 from
+2019Q4. A common starting year therefore does not imply identical effective
+samples for every driver. The 2026Q1--Q2 mine statistics replace the first
+two forecast quarters as actuals; forecasts from 2026Q3 remain as originally
+estimated (Chapter~10).
+
+\section{Operating quantities supplied by the source programme}
+\label{sec:company-operating-quantities}
+
+% Sources: Team 4 Sections 1.1.3, 2.2--2.4, 3.1--3.2 and 4.1;
+% Annual Report 2025, Production Costs and mine tables.
+Production and CoS are forecast separately, mine by mine, on 20 quarters
+from 2026Q1 to 2030Q4. Annual quantities sum four quarters. The price comes
+from Team~8 in Chapter~9; Team~4's standalone demonstrator is excluded.
+
+\paragraph{Production.}
+Quarterly production of mine $i$ is built from three physical drivers,
+\begin{equation}
+\mathrm{Prod}_{i,t}=\frac{\kappa}{c}O_{i,t}G_{i,t}R_{i,t},
+\qquad\kappa=0.91,\quad c=31.1035~\text{g/oz},
+\label{eq:company-production-identity}
+\end{equation}
+where $O$ is ore processed in tonnes, $G$ processed grade in grams per tonne
+and $R\in(0,1)$ recovery. Their product is recovered gold in grams; $c$
+converts grams to troy ounces. The realisation factor $\kappa$ is the mean
+mine ratio of realised to theoretical production, absorbing lags such as
+stockpiling, heap leaching and autoclave residence \cite{team4}. The source
+uses rounded $31.11$, lowering output approximately $0.02\%$; conversion
+is from grams, not tonnes as stated in its text. Ore uses
+SARIMA$(1,0,1)(1,0,0)_4$, grade AR(1) without seasonal terms, and recovery
+uniform historical bounds widened by $\pm1\%$, truncated to $[0.50,1.00]$.
+Production bands are 80\% Goodman product-variance intervals under
+independence (Chapter~10).
+
+\paragraph{Costs.}
+CoS is USD per attributable ounce sold, excluding closure or care-and-
+maintenance sites. The 2024 definition used by Team~4 includes site costs,
+royalties, depreciation and community relations \cite{team4}; the 2025 report
+also identifies mining and production taxes. Consolidated gold CoS in 2025
+was USD~7,357 million: site costs 5,056; depreciation 1,588 (21.6\%);
+royalties 540 (7.3\%); mining and production taxes 132; community relations
+41 \cite{barrick-ar-2025}. The production-weighted log master chain is
+ARIMA$(3,1,0)$ with drift, projected to each mine by
+$\beta_i=0.67\,\sigma(r_{i,t})/\sigma(r_{\mathrm{global},t})+0.33$ and anchored
+at 2025Q4. Cost bands are 95\%, versus production's 80\%.
+
+\paragraph{Operating output.}
+For quarterly gold price $P_t$ in USD/oz, the source passes
+\begin{equation}
+\mathrm{CM}_t=(P_t-\mathrm{CoS}_t)\mathrm{Prod}_t
+\label{eq:company-component-margin}
+\end{equation}
+to valuation. Because CoS contains depreciation, this is after-depreciation
+\emph{component margin}, not EBITDA despite the source label \cite{team4}.
+Nevada Gold Mines' 2025 mine income USD~3,141 million plus depreciation 568
+gives reported EBITDA 3,709 \cite{barrick-ar-2025}. The corporate gold cost
+mix puts depreciation near one fifth of CoS. Nor is the margin reconciled
+EBIT: G\&A, exploration, project expenditure and other items are absent.
+CoS is per ounce \emph{sold}, while the identity multiplies ounces
+\emph{produced}. Forecast royalties are fixed per ounce, although Barrick
+attributes about USD~55/oz of the 2025 CoS increase to higher royalties from
+higher realised gold prices \cite{barrick-ar-2025}. Chapter~11 must reconcile
+these mismatches before the proxy becomes accounting cash flow.
+
+\begin{table}[H]
+\centering
+\caption{Operating contract of the original Team~4 gold module.}
 \label{tab:company-operating-contract}
 \small
 \renewcommand{\arraystretch}{1.12}
-\begin{tabularx}{\textwidth}{@{}p{2.70cm}X X@{}}
+\begin{tabularx}{\textwidth}{@{}p{2.15cm}X X@{}}
 \toprule
-\textbf{Dimension} & \textbf{Required dated input} &
-\textbf{Reason it cannot remain implicit} \\
+\textbf{Dimension} & \textbf{Team~4 specification} &
+\textbf{Reconciliation still required} \\
 \midrule
-Production & Ounces produced and sold by asset, ownership basis, grade,
-recovery and forecast frequency. & Volumes determine revenue exposure and
-must reconcile consolidated versus attributable reporting. \\
-Costs & CoS, cash cost, AISC components, royalties, sustaining and growth
-capital with explicit units. & Mixing cash and accrual measures can double
-count D\&A, sustaining investment or royalties. \\
-Commodity price & Physical-gold and realised-price paths in currency per troy
-ounce, including basis, hedging and royalty treatment. & GLD is quoted in USD
-per share and cannot enter revenue with an implicit one-to-one conversion. \\
-Operating output & Revenue, component margin and the precise EBITDA/EBIT
-definition by year and scenario. & The DCF requires a reconciled accounting
-quantity, not a label carried over from an operating model. \\
-Dependence & Joint or explicitly deterministic relations among price,
-production and costs. & Independent broadcasts and untested correlations can
-materially change the tails of the cash-flow distribution. \\
+Perimeter & Eight gold mines, attributable; copper and other gold assets
+absent from source module. & Separate copper extension; other assets,
+per-share basis and North America IPO. \\
+Frequency and horizon & Quarterly estimation 2019--2025; 20 quarters to
+2030Q4; annual sums; Q1--Q2 2026 actuals. & No mine-life model supports a
+terminal assumption beyond 2030. \\
+Production & $O$ in t, $G$ in g/t, $R$ decimal, output oz; seasonal ore,
+AR(1) grade, uniform recovery; 80\% Goodman bands. & Produced versus sold;
+only point forecasts enter frozen valuation. \\
+Costs & USD/oz CoS includes depreciation and royalties; log ARIMA$(3,1,0)$
+with drift, $\beta$ scaling, Q4 2025 anchors; 95\% bands. & D\&A, royalties,
+taxes, capex, G\&A, exploration and exceptional anchors; no AISC model. \\
+Commodity price & Source only: GBM at USD~4,677/oz on 2 April 2026 using GLD
+per-expiry volatility; excluded here. & Team~8 shapes at Q2 realised gold
+USD~4,417/oz; no GLD-level conversion; realised basis, hedging and measures. \\
+Operating output & After-depreciation component margin, called EBITDA in
+source. & EBIT, taxes, working capital and capex bridge. \\
+Dependence & Ore--grade $r\approx-0.45$, ore--recovery $r\approx-0.17$;
+cost PC1 41.22\%, Bartlett $p=0.0186$; fixed operating vectors in valuation.
+& Joint simulation, production response and royalty--price link. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section{Financial and structural perimeter}
+\label{sec:company-financial-perimeter}
 
-% Sources: Team 5 T5-02/T5-04/T5-10--13; GAP-DATA-03--05;
-% GAP-VAL-03/04/06.
-The financial perimeter is distinct from the operating perimeter. It fixes the
-reporting statements and scale used to derive taxes, reinvestment and capital
-cost; it also identifies net debt, lease or debt-equivalent claims, minority
-interests, non-operating assets and diluted shares for the equity bridge.
-Listing continuity and foreign-exchange treatment matter because a market
-comparison is meaningful only when model value and quoted price refer to the
-same security, currency and share basis.
+The financial perimeter fixes statements, currency and scale for taxes,
+reinvestment and capital costs, and debt, leases or equivalent claims,
+non-controlling interests, non-operating assets and diluted shares. Model and
+market claims must refer to the same security and date.
 
-\gapbox{Freeze the reporting date, currency and scale; reconcile debt, cash,
-minorities, non-operating assets, other claims and diluted shares; document the
-security and corporate-action policy used for the contemporaneous market-price
-comparison.}
+Barrick consolidates the Nevada, Pueblo Viejo, Loulo--Gounkoto and Tanzanian
+operations and equity-accounts Kibali \cite{barrick-ar-2025}. Here flows
+already represent Barrick's share. Deducting those same partners' interests
+again would double count their exclusion. Consolidated cash and debt include
+full subsidiary balances and exclude Kibali's; claims must be restated
+consistently with attributable flows, including corporate-level claims,
+not multiplied mechanically by one aggregate ownership fraction.
+
+The 1,675.51 million diluted-share proxy remains unreconciled (Chapter~11).
+Shares claim the whole company, whereas the gold baseline and gold-plus-
+copper extension cover defined subsets. Per-share division allocates a
+perimeter proxy; it does not yield full-company equity fair value. The copper
+extension reports aggregate operating-value proxies without per-share targets.
+
+Loulo--Gounkoto was suspended 14 January 2025, placed under provisional
+administration and deconsolidated 16 June, then returned to Barrick control
+16 December following the agreement announced 24 November. On 1 December
+2025 the Board authorised preparation of an IPO of an entity holding its
+Nevada Gold Mines and Pueblo Viejo interests plus Fourmile, expected by late
+2026 with Barrick retaining control \cite{barrick-ar-2025}. External ownership
+would change effective look-through interests in four modelled mines. The
+December 2025 percentages cannot simply be carried beyond completion.
+The 2025 Hemlo and Tongon sales lie outside the eight-mine vector.
+The annual report alone does not fix IPO status on 2 September 2026.
+The 28 April update and the 10 August Q2 release still describe a planned
+minority-stake IPO expected by year end \cite{barrick-ipo-2026,barrick-q2-release-2026}.
+The latter also announces Newmont's consent, an early contribution of excluded
+properties to Nevada Gold Mines and a USD~1.95 billion top-up payment. Those
+events require their own asset, timing and cash-bridge reconciliation; they
+do not authorise a silent change to the frozen eight-mine forecast vector.
+The 2026Q2 operating release predates the 2 September market snapshot, but its
+reporting-period end, publication date and October retrieval remain distinct.
+
+\gapbox{Freeze date, currency and scale; restate debt, cash, other claims and
+non-operating assets consistently with attributable flows, without deducting
+the same partners' interests twice; reconcile diluted shares; verify North
+America IPO status at the valuation date and resulting look-through ownership;
+document the security and corporate-action policy of the market comparison.}
 
 \section{Risk boundary and permitted use}
+\label{sec:company-risk-boundary}
 
-% Sources: GAP-COMPANY-04; GAP-VAL-02/06; CL-009/013.
-Geography, reserve life, execution risk and structural events affect the
-operating horizon, the dependence of production and costs, and the credibility
-of any terminal assumption. Those facts require current corporate evidence and
-cannot be inferred from a market-price series. Until that evidence is admitted,
-this chapter defines a valuation contract and its failure conditions; it is not
-a substitute company profile and does not support a final target value.
+The gold mines span Nevada, the Dominican Republic, Mali, Tanzania and the
+DRC. Team~4's lag-four throughput term captures winter or wet-season
+constraints. Structural events are not endogenous: the source treats the
+Loulo--Gounkoto suspension as a mine-specific shock absorbed geographically
+and over time, and simultaneous failures as negligible \cite{team4}.
+This is an assumption, not an estimated geopolitical-risk bound.
+
+Production diversification does not imply independent costs. Bartlett's test
+rejects independence ($p=0.0186$); PC1 explains 41.22\% of quarterly cost
+shocks, the first two components 62.79\% \cite{team4}. Shared cost shocks
+motivate the master chain and remain systematic across the perimeter.
+
+Cost paths start at 2025Q4. Loulo--Gounkoto's USD~4,151/oz CoS includes the
+inventory fair-value increment on reconsolidation, versus cash costs
+USD~1,448/oz. Its 2026 CoS guidance USD~2,860--3,140/oz still includes higher
+purchase-price-allocation depreciation \cite{barrick-ar-2025}. Projecting
+that anchor carries an exceptional effect forward; it needs a separate
+normalisation check. This edit does not silently alter the frozen vector.
+
+Reserve life is outside the model. Grade is stationary over five years under
+feed-blending arguments; depletion, closure, high-grading, throttling and
+care and maintenance are not endogenous \cite{team4}. Neither that model
+nor flat extension of observed copper forwards supplies mine-life evidence
+for perpetuity. The copper comparison uses a finite five-year primary
+horizon and separate terminal sensitivities. Until accounting, structural
+and measure bridges are admitted, the document defines a research contract
+and its failure conditions, not a final target value.

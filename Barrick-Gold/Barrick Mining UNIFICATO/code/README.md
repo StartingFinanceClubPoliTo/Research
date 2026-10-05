@@ -129,3 +129,13 @@ Starting Finance Club PoliTo Research, *UNIFICATO - Stochastic Valuation of Barr
 ## Audited Paper experiment — September 7, 2026
 
 Run `python main.py --paper-audit` to reproduce the revised Paper using the bundled curated Team 8 inputs. See [paper_audit/README.md](paper_audit/README.md) and its technical supplement. This isolated mode reports signed aggregate operating proxies, not equity values. The thesis and historical default workflow retain their existing draft scope; historical OOS fits are preserved.
+
+## Probability-measure contract - October 5, 2026
+
+Option calibration remains under Q with deterministic rates. The operating experiment uses an artificial scenario law R: transferred coefficients, imposed commodity mean schedules and independent WACC shocks. No Q-to-P density, physical risk premia or pricing kernel is estimated. A fixed-delivery future has zero drift in the pricing convention; the cross-delivery copper curve is a scenario mean schedule, not that futures drift. WACC is not the short rate. Combining Q-shaped scenarios and assumed WACC is a sensitivity operator, not corporate pricing. Replacing WACC with a risk-free rate alone would not reconcile corporate cash flows.
+
+`--valuation-law` supports only `conditional_option_implied_shape`; physical and corporate risk-neutral interpretations are rejected. The manifest records the measure boundary. Tests check jump compensation and zero fixed-future drift for all four engines. The October 5 Paper replay reproduces the October 3 numerical aggregates exactly. Copper mine volumes/CoS remain controlled fixed scenarios; they are not the gold mine-level SARIMA forecasts.
+
+## Active project graph
+
+[Graph report](../graphify-out/GRAPH_REPORT.md) covers active integration and accepted measure/Paper evidence. HTML and JSON are alongside the report; archive/build duplicates and licensed quote rows are excluded.

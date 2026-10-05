@@ -45,7 +45,7 @@ with the jump block determined by the Riccati system
 where $\psi_J(u)=\exp(iu\mu_J-\tfrac12\sigma_J^2u^2)$. European call prices use Fourier-COS inversion \citep{cos2008}, with independent diffusion and jump drivers. The identities $\phi(0)=1$, the martingale condition at $u=-i$, and the limit $\alpha\to0$, $\lambda_0=\bar\lambda$, back to Bates are used as implementation checks.
 
 \begin{methodbox}[Model-role constraint]
-These four processes govern only the gold-price layer. They never generate Barrick production or costs in the integrated valuation.
+These processes govern commodity prices only. The copper extension uses forward-price analogues; neither price layer generates Barrick production or costs.
 \end{methodbox}
 
 \subsection{Option-surface calibration and predictive test}
@@ -80,14 +80,14 @@ The selected model minimizes both $AIC=-94.64$ and $BIC=-86.87$ \citep{akaike197
 AIC=2p-2\log\widehat L,\qquad BIC=p\log N-2\log\widehat L.
 \label{eq:aicbic}
 \end{equation}
-The source reports a 12-period hold-out MAPE of $0.603\%$; its sample, missing-value treatment and test details are not reproduced here, so this is not independent validation.
+The source's 12-quarter cost hold-out reports log-scale RMSE of 0.0504 against 0.1512 for a random walk. Its 0.603\% MAPE is computed on log values, not USD/oz; it must not be read as a cost-level percentage error. This is source evidence, not independent replication.
 
 Team 4 models production components without claiming AIC/BIC selection. With ore in kt, grade in g/t and recovery as a fraction, physical output in koz is
 \begin{equation}
 Q_t^{phys}=\mathrm{Ore}_t\,\mathrm{Grade}_t\,\mathrm{Recovery}_t/31.1035,
 \label{eq:production_formula}
 \end{equation}
-with ore modelled as $SARIMA(1,0,1)(1,0,0)_4$, grade as $SARIMA(1,0,0)(0,0,0)_4$, and recovery sampled from bounded historical ranges. Team 4 additionally applies a 0.91 empirical realization factor, not a unit conversion; its transfer across mines remains unvalidated. The valuation retains the frozen Team 4 vectors, not the Goodman distributions; product-variance formulas require explicit dependence assumptions.
+with ore modelled as $SARIMA(1,0,1)(1,0,0)_4$, grade as a non-seasonal AR(1), and recovery sampled uniformly from historical extrema widened by one percentage point and truncated to $[0.50,1.00]$. Team 4 additionally applies a 0.91 empirical realization factor, not a unit conversion; its transfer across mines remains unvalidated. The valuation retains the frozen Team 4 vectors, not the Goodman distributions; production bands are 80\% and cost bands 95\%, while product-variance formulas require explicit dependence assumptions.
 
 \subsection{Valuation mapping}
 Team 5 makes growth internally consistent with reinvestment through

@@ -1,9 +1,32 @@
 \section{Data, Provenance and Experimental Design}
+\label{sec:data-design}
 \chapterstatus{Editorial synthesis of the accepted provenance, notation and gate contracts. Provider-specific values remain governed by their source freezes.}
 
 \subsection{Data universe and dates}
 
-The legacy corpus contains different evidence domains: long-run gold and silver time series, London Stock Exchange option inputs, operating forecasts and synthetic DCF examples. These domains must retain their own provider, sampling frequency, date range, unit and measure. The historical gold sample and the option-calibration sample are not pooled.
+The legacy corpus contains different evidence domains: long-run gold and silver
+time series, London Stock Exchange market and option inputs, mine-level
+operating data and synthetic DCF examples. Each retains its own provider,
+frequency, date range, unit and measure. The operating domain is quarterly and
+mine-level: Team~4 estimates on 2019Q1--2025Q4 Barrick reports, with shorter
+effective samples where leading observations are missing; 2026Q1--Q2 enter
+as actuals and forecasts cover 2026Q3--2030Q4
+(Section~\ref{sec:company-perimeter}). The 2 April 2026 GLD option snapshot
+and standalone Team~4 GBM paths are a separate legacy domain, excluded from
+the integrated valuation \cite{team4}. Gold histories, option-calibration
+surfaces and operating panels are not pooled.
+
+The copper extension is another declared experiment: historical HG/HXE
+bid/ask surfaces, contemporaneous matching futures and date-specific Treasury
+curves are distinct from both GLD and the mine panel. Its preliminary temporal
+pilot samples ten dates across 9 July--2 September 2026, including the final
+three consecutive dates, with approximately 100 spaced real locations per
+date. It is not a reproduction of the 31-date gold OOS panel. Missing, stale
+or wide-spread quotes remain exclusions; no synthetic quotes complete a date.
+The surviving contract catalogue prevents a complete point-in-time universe
+and expired-option history is unavailable from this API
+\cite{ib-historical-limitations}. Admitted dates and actual forecast gaps are
+reported in Section~\ref{sec:copper-extension}.
 
 \subsection{Provenance and reproducibility}
 
@@ -11,11 +34,42 @@ Every quantitative result admitted to the final study must be traceable through 
 
 \subsection{Common notation, units and model interfaces}
 
-The unified notation distinguishes the physical measure $\mathbb P$ from the pricing measure $\mathbb Q$, GLD in USD per share from physical gold in USD per ounce, annualised decimals from percentage points, and enterprise value from equity value. Operating and corporate values are to be expressed on an explicitly declared scale, normally USD millions, while per-share values require a separately reconciled diluted-share count.
+The notation distinguishes the physical measure $\mathbb P$ from the pricing
+measure $\mathbb Q$, GLD in USD/share from gold in USD/oz, annualised decimals
+from percentage points, and enterprise from equity value. Production is
+$\mathrm{Prod}$ or italic $Q$ in Chapter~11, distinct from $\mathbb Q$.
+Ore is in tonnes, grade in g/t, recovery decimal, and production in troy
+ounces of $31.1035$ grams, usually reported in thousands. Gold CoS is USD
+per attributable ounce sold. Copper prices and CoS are USD/lb, attributable
+sales are kt, and $1~\mathrm{t}=2204.6226218488~\mathrm{lb}$. Values use an
+explicit scale, normally USD millions; per-share values require a reconciled
+diluted-share denominator. Already attributable volumes are never scaled by
+ownership twice.
 
 \subsection{Evaluation design}
 
 Model fit, predictive performance, numerical convergence and economic sensitivity are separate questions. In-sample residual improvement is not evidence of out-of-sample superiority. Likewise, source-model parity is a prerequisite for integration, not a new economic finding.
+
+Error metrics must use the scale relevant to the valuation. Team~4's
+12-quarter cost holdout against a random walk reports RMSE $0.0504$ versus
+$0.1512$ and MAPE $0.603\%$ versus $1.77\%$ on the log master chain
+\cite{team4}. A log error of $0.05$ is roughly a 5\% level error; MAPE on
+log values is not MAPE in USD/oz and depends on the log level and unit scale.
+The RMSE ratio is the useful comparison, not the stated MAPE level.
+
+Coverage and uncertainty sources must be explicit. The 95\% cost bands and
+80\% production bands describe operating uncertainty; the frozen Chapter~12
+quantiles vary gold prices and discount rates with production and costs fixed.
+The copper extension adds copper-price uncertainty under declared dependence
+scenarios. These quantities are neither interchangeable nor complete
+corporate confidence intervals.
+
+Copper reserved-strike scores test interpolation. Temporal scores fit only
+origin-date quotes and project variance/intensity to the next admitted date;
+target forward and as-of rates condition repricing. Common target support,
+origin-mean and inside-hull persistence benchmarks, date-equal and pooled
+losses are retained separately. Conditional IV repricing does not test a
+physical price forecast or the accounting cash-flow bridge.
 
 \subsection{Research boundaries}
 

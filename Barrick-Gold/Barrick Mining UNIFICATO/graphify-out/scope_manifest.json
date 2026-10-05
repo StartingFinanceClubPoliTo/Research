@@ -1,0 +1,12 @@
+{
+  "revision": "2026-10-05",
+  "files": 93,
+  "words": 57951,
+  "nodes": 1057,
+  "edges": 2568,
+  "communities": 67,
+  "semantic_sources": 10,
+  "source_manifest_sha256": "d2efd6305102a094331ee29de443d3d249ed01d0c1e493a0a33bb842d659fae9",
+  "coverage": "Active code and accepted documents; licensed quotes, archive and builds excluded",
+  "token_usage": "UNMETERED_BY_HOST"
+}

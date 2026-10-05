@@ -8,6 +8,16 @@ those results are referenced rather than repeated here.}
 
 \section{End-to-end experiment contract}
 
+The numerical experiment in this chapter is the frozen gold baseline:
+company-wide actuals for 2026Q1--Q2 followed by the eight-mine forecast,
+with the scope break disclosed in Chapter~10.
+Section~\ref{sec:copper-extension} reports a separate extension
+with three attributable copper operations, its own temporal validation
+and a paired finite-horizon comparison. Gold-only per-share examples below
+are not updated by adding a copper increment to their quantiles. The
+extension first aggregates gold and copper on each path and reports
+aggregate operating-value proxies without a reconciled equity bridge.
+
 Chapter~11 defined the accounting, discounting and closure rules that must hold
 before operating scenarios can become enterprise value, equity value and a
 per-share quantity. The integrated experiment is therefore a sequence of typed
@@ -107,6 +117,31 @@ restarts at USD~4,417/oz, Barrick's Q2 2026 average realised price used only
 as a common level anchor. The procedure neither
 converts GLD share levels into physical gold nor estimates a
 \(\mathbb Q\)-to-\(\mathbb P\) map.
+
+\paragraph{The operating law is not a measure change.}
+For both gold and copper, denote the operating scenario law by $\mathcal R$.
+It combines transferred option-implied coefficients, imposed commodity mean
+schedules and an independent assumed WACC law. It is neither an estimated
+physical law $\mathbb P$ nor the original traded-instrument pricing law
+$\mathbb Q$. No Radon--Nikodym density or physical market-price-of-risk
+specification is estimated. For a fixed-delivery futures price, the
+deterministic-rate option convention uses zero drift; copper's
+cross-delivery curve slope instead imposes a scenario mean and must not be
+identified with that future's time drift. WACC shocks are not short-rate shocks.
+
+In the jump simulators the compensator is
+$\lambda(\mathbb E[e^J]-1)$ under the simulated mark law, with the left-step
+intensity in Hawkes. A genuine measure transformation may change variance
+drift, jump intensity and mark distribution as well as price drift; none is
+identified by replacing a drift coefficient alone. Ordinary physical DCF
+needs expected cash flows and a compatible risk-adjusted discount contract.
+Pricing under $\mathbb Q$ needs the corresponding numeraire/pricing kernel
+and treatment of non-spanned corporate risks. Q-shaped paths plus assumed
+WACC can mix incompatible risk adjustments; substituting a risk-free rate
+alone would not reconcile this corporate claim. The executable experiment
+therefore admits only the conditional law $\mathcal R$ and rejects physical
+or corporate risk-neutral interpretations. Unit-mean and nonzero-jump
+compensation checks validate its numerical implementation, not its economics.
 
 The date vector remains visible: the anchor quarter ends 30 June 2026, the
 Treasury curve, Barrick close and current Team~8 surface are dated 2 September. The current surface is used for recalibration. The

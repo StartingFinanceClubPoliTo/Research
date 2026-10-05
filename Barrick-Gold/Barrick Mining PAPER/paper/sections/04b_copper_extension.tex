@@ -1,0 +1,59 @@
+\section{Copper Extension: History and Paired Operating Values}
+\label{sec:copper-extension}
+
+\subsection{Perimeter and units}
+The original gold-only study omitted copper. The extension admits three producing mines: Lumwana (100\%), Zald\'ivar (50\%) and Jabal Sayid (50\%). Their Q2 2026 attributable sales are 40, 9 and 5 kt, and Cost of Sales is 3.14, 4.89 and 2.63 USD/lb, respectively \citep{barrickmine2026}. The sales quantities already incorporate ownership; multiplying by those shares again would understate the two joint ventures. Lumwana is consolidated, while the other two interests are equity-accounted \citep{barrickar2025}. Production and sales are distinct quantities; the copper margin uses sales.
+
+With $s_i$ in kt and $P_t,c_i$ in USD/lb, quarterly attributable component margin in USD millions is
+\begin{equation}
+CM^{Cu}_t=\frac{2204.6226218488}{1000}\sum_i s_i(P_t-c_i).
+\label{eq:copper-margin}
+\end{equation}
+Q2 sales and costs are held fixed for 20 quarters. This is a controlled operating scenario, not a mine-production forecast. CoS includes depreciation; reported capital expenditure is not separately deducted in this proxy. Expansion at Lumwana, Reko Diq, other gold assets, reserves and closure obligations remain outside the model.
+
+\subsection{Historical surface and exercise treatment}
+The IB API collection selected ten historical dates between 9 July and 2 September 2026 before scoring. Each date used 112 uniformly spaced out-of-the-money contract locations, rather than thousands of quotes. There are 912 returned quote rows across the pilot; missing responses are not fabricated. The common admission rule requires at least 64 eligible observations and three expiries, option and matched-future quote ages no greater than 120 seconds, and a relative option spread no greater than 20\%. Seven dates survive, creating six origin--target pairs with gaps of 11, 23, 9, 10, 1 and 1 calendar days. July 10, July 31 and August 3 fail the quality gate. Historical data therefore exist, but this is a sparse pilot rather than a daily panel; the other gold reference dates were not collected in this experiment.
+
+Copper is quoted in USD/lb through COMEX HG futures and their American options. A 600-step constant-volatility CRR inversion removes the early-exercise convention before fitting European forward-price engines; a 300-step comparison checks discretization. This transformation does not solve early exercise under the full stochastic-volatility/jump models. Each option is matched to its own underlying future; Black--76 is the constant-volatility benchmark. Origin calibration uses the dated Treasury curve, with no target-date quote entering parameter selection. The 2 September current fit uses all 86 eligible observations.
+
+\subsection{Temporal tests}
+Origin parameters are frozen and their latent states projected over the actual calendar gap. Target forward prices and rates condition repricing; the test is not an unconditional physical-price forecast. All four models share 480 target observations. Persistence uses origin IV interpolation inside the maturity--log-moneyness convex hull and has 375 supported targets. Equal-date scoring prevents dense dates from dominating; unsupported persistence points are omitted from its comparison.
+
+\begin{table}[H]
+\centering
+\caption{Copper rolling temporal repricing, six date pairs. RMSE is the mean daily RMSE in IV basis points; $R^2_p$ is against observed-IV persistence on common support.}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Model & RMSE (bp) & $R^2_p$ \\
+\midrule
+Black--76 & 106.48 & $-1.294$ \\
+Heston & 71.46 & $-0.422$ \\
+Bates & 70.49 & $-0.389$ \\
+Bates--Hawkes & 67.65 & $-0.208$ \\
+\bottomrule
+\end{tabular}
+\label{tab:copper-oos}
+\end{table}
+
+No model beats persistence in the rolling experiment. As a robustness exercise, fixing 9 July as the sole calibration origin gives persistence $R^2$ of $-0.345$, $-0.282$, $0.193$ and $0.182$ in the same model order, on 333 supported targets. The positive Bates and Hawkes point estimates are conditional on this different origin, gap and support; they do not overturn the rolling result or establish significance with six dependent target dates.
+
+\subsection{Paired five-year contribution}
+Under the artificial law $\mathcal R$, the price scenario uses log-linear matched-future anchors at actual delivery dates, flat beyond the final observed delivery at 0.728 years. This schedule is neither a fixed-futures drift nor a fitted physical expectation. Five years therefore requires substantial extrapolation. The Paper's revised gold parameters, operating vectors and 8,192 WACC paths are reused exactly for gold-only and combined runs. The primary case assumes independent commodity paths and no terminal value. Whole-path permutations with terminal Gaussian-score correlation $\pm0.5$ and a signed perpetuity are separate sensitivities, not estimated price dependence or reserve-supported continuation.
+
+\begin{table}[H]
+\centering
+\caption{Paired five-year means in USD bn. $\Delta$ is the mean pathwise copper increment; SE is its Monte Carlo standard error in USD mn. These are operating proxies.}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & Gold & Gold+Cu & $\Delta$ & SE \\
+\midrule
+Black benchmark & 14.857 & 17.484 & 2.627 & 23.0 \\
+Heston & 14.847 & 17.465 & 2.618 & 39.4 \\
+Bates & 14.799 & 17.466 & 2.666 & 40.4 \\
+Bates--Hawkes & 14.795 & 17.438 & 2.643 & 37.0 \\
+\bottomrule
+\end{tabular}
+\label{tab:copper-paired}
+\end{table}
+
+The additional margin enters the same tax and growth--ROIC operator before discounting. The copper increment is approximately USD 2.62--2.67 bn under this contract; it cannot be added to the gold signed-terminal medians reported earlier, which use a different statistic and horizon. Monte Carlo standard errors measure simulation noise only. Mine-level forecast, commodity basis, accounting and parameter uncertainty remain outside them. The extension closes an omitted operating component while leaving the corporate FCFF and equity bridges open.

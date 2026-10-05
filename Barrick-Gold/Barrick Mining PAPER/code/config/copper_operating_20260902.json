@@ -1,0 +1,21 @@
+{
+  "status": "CONDITIONAL_ATTRIBUTABLE_COPPER_COMPONENT_MARGIN_SCENARIO",
+  "source_period": "2026Q2",
+  "source_url": "https://s25.q4cdn.com/322814910/files/doc_financial/quarterly_results/2026/q2/Barrick_Q2_2026_Mine_Stats.pdf",
+  "source_sha256": "967251969C528C1898045302533B7F46BBABB34D0654DCCEBCAD0789A87BD63A",
+  "source_table": "Mine Statistics (Copper), three months ended June 30, physical page 8",
+  "volume_basis": "ALREADY_BARRICK_ATTRIBUTABLE; ownership retained as metadata, not multiplied again",
+  "horizon_quarters": 20,
+  "projection": "Freeze Q2 sales and unit CoS at each mine for all forward quarters; explicit scenario assumption, not a mine forecast or company guidance",
+  "mines": [
+    {"mine": "Lumwana", "ownership": 1.0, "production_kt": 41, "sales_kt": 40, "cost_of_sales_usd_per_lb": 3.14, "depreciation_usd_per_lb": 0.80, "sustaining_capex_usd_mn": 87, "project_capex_usd_mn": 146, "total_capex_usd_mn": 242},
+    {"mine": "Zaldivar", "ownership": 0.5, "production_kt": 9, "sales_kt": 9, "cost_of_sales_usd_per_lb": 4.89, "depreciation_usd_per_lb": 1.12, "sustaining_capex_usd_mn": 30, "project_capex_usd_mn": 23, "total_capex_usd_mn": 53},
+    {"mine": "Jabal Sayid", "ownership": 0.5, "production_kt": 6, "sales_kt": 5, "cost_of_sales_usd_per_lb": 2.63, "depreciation_usd_per_lb": 0.65, "sustaining_capex_usd_mn": 2, "project_capex_usd_mn": 2, "total_capex_usd_mn": 4}
+  ],
+  "company_totals": {"production_kt": 56, "sales_kt": 54, "revenue_usd_mn": 697, "cost_of_sales_usd_per_lb": 3.39, "total_capex_usd_mn": 299},
+  "rounding_note": "Mine unit costs and kt volumes are rounded source values; weighted mine CoS need not equal reported total exactly. Capex components do not sum exactly to total because total includes other capitalized amounts.",
+  "cash_flow_scope": "CoS margin added before the common methodological tax/growth/ROIC transform; NOT reconciled EBITDA/FCFF. Capex and depreciation are source facts, not additional deductions in this margin experiment.",
+  "excluded_growth_projects": ["Lumwana Super Pit expansion incremental production and investment plan", "Reko Diq", "Norte Abierto"],
+  "terminal_policy_primary": "none",
+  "limitations": ["Copper realized-price vs COMEX basis not estimated", "Gold/copper dependence assumed independent, not estimated", "Q/P bridge remains unvalidated", "No full corporate equity bridge or per-share fair value", "Mine reserves and closure obligations not modeled", "Frozen gold operating-vector chronology inherited from baseline and not reforecast here"]
+}

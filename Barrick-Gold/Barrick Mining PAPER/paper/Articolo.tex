@@ -58,9 +58,9 @@
 \newcommand{\PaperType}{RESEARCH ARTICLE}
 \newcommand{\PaperTitle}{Operating-Value Sensitivity for Barrick Mining}
 \newcommand{\ShortTitle}{OPERATING-VALUE SENSITIVITY — BARRICK MINING CORPORATION}
-\newcommand{\PaperSubtitle}{A controlled comparison of option-implied gold-price laws}
+\newcommand{\PaperSubtitle}{Option-implied gold and copper laws in a controlled operating experiment}
 \newcommand{\PreparedDate}{07/09/2026}
-\newcommand{\RevisedDate}{07/09/2026}
+\newcommand{\RevisedDate}{05/10/2026}
 \newcommand{\PaperID}{Working Paper}
 \newcommand{\JELCodes}{G12; G13; G31; C32; C53; C61; C63}
 
@@ -78,12 +78,13 @@
 % Abstract intentionally excludes numerical results. Detailed calibration,
 % model-comparison statistics and valuation percentiles belong in Results.
 \newcommand{\PaperAbstract}{%
-This study audits the sensitivity of an unreconciled Barrick operating-value proxy to alternative option-implied gold-price laws. Eight student teams connect probability, econometrics, simulation, operating forecasts and a common discounted-margin mapping. Black--Scholes, Heston, Bates and Bates--Hawkes are fitted to the same 64 GLD calls dated 2 September 2026. A calibration audit retains feasible nested candidates and improves the previously reported Bates and Hawkes fits; historical out-of-sample scores remain a separate, frozen experiment. Production, unit costs and annual discount-rate shocks are shared across 8,192 simulated paths. The reported quantities are aggregate operating proxies under explicit terminal conventions: no net-debt, ownership or diluted-share bridge is asserted. Option-implied risk-neutral dynamics combined with an assumed WACC do not constitute a validated corporate valuation or physical forecast. Signed perpetuity and five-year-only closures expose the sensitivity to terminal assumptions. Numerical checks also show that small cross-model differences in medians are not stable evidence of economic ranking. The contribution is a reproducible, controlled research experiment with explicit limits on accounting, probability measure, option conventions, extrapolation and statistical inference. Results are neither fair values nor price targets, investment recommendations or evidence of market mispricing.%
+This study audits the sensitivity of an unreconciled Barrick operating-value proxy to alternative option-implied commodity-price laws. Eight student teams connect probability, econometrics, simulation, operating forecasts and a common discounted-margin mapping. Black--Scholes, Heston, Bates and Bates--Hawkes are fitted to a common GLD surface. A calibration audit retains feasible nested candidates; historical gold out-of-sample scores remain a separate, frozen experiment. A new copper extension uses American options on matched COMEX futures, historical snapshots and both rolling and fixed-origin repricing tests. Three producing copper mines enter on Barrick's attributable sales basis. Production, unit costs and discount-rate shocks are controlled across paired gold-only and gold-plus-copper simulations. The copper contribution is reported primarily over five years without terminal continuation; its fixed-volume operating scenario does not forecast mine expansion. Aggregate operating proxies do not assert a net-debt, ownership or diluted-share bridge. Option-implied coefficients transferred to an artificial scenario law and combined with WACC do not constitute a measure change, corporate pricing or a physical forecast. Persistence benchmarks, numerical sensitivity and terminal conventions constrain interpretation of model rankings. The contribution is a reproducible research experiment with explicit limits on accounting, probability measure, exercise conventions, extrapolation and statistical inference. Results are neither fair values nor price targets, investment recommendations or evidence of market mispricing.%
 }
 
 % ---------- Hyperlinks ----------
 \hypersetup{
   colorlinks=true,
+  hypertexnames=false,
   linkcolor=brand,
   citecolor=brand,
   urlcolor=brand,
@@ -190,7 +191,7 @@ This study audits the sensitivity of an unreconciled Barrick operating-value pro
   \setlength{\parindent}{0pt}%
   \noindent
   \begin{minipage}[c]{0.75\textwidth}
-    \fontsize{7.0}{8.4}\selectfont\color{muted}\PreparedDate
+    \fontsize{7.0}{8.4}\selectfont\color{muted}\PreparedDate\enspace | Revised \RevisedDate
   \end{minipage}%
   \hfill
   \begin{minipage}[c]{0.19\textwidth}\raggedleft
@@ -314,6 +315,7 @@ This study audits the sensitivity of an unreconciled Barrick operating-value pro
 \input{sections/03b_calibration_audit}
 \input{sections/03d_valuation_audit}
 \input{sections/04_results}
+\input{sections/04b_copper_extension}
 \input{sections/05_robustness}
 \end{multicols}
 

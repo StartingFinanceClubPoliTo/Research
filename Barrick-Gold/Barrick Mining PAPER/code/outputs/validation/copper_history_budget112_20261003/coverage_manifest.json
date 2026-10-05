@@ -1,0 +1,45 @@
+{
+  "status": "READY_FOR_TEMPORAL_OOS",
+  "gold_reference_dates": 31,
+  "planned_dates": 10,
+  "acquired_dates": 10,
+  "scope": "Coverage of the declared copper pilot, with unplanned gold reference dates explicitly separated",
+  "admitted_dates": [
+    "2026-07-09",
+    "2026-07-20",
+    "2026-08-12",
+    "2026-08-21",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02"
+  ],
+  "possible_next_admitted_date_pairs": 6,
+  "threshold": {
+    "minimum_actual_quotes": 64,
+    "minimum_expiries": 3,
+    "minimum_dte": 75,
+    "max_age_seconds": 120,
+    "max_relative_spread": 0.2
+  },
+  "interpretation": "Retrieval failure or unacquired dates do not establish historical data absence. No OOS scores may be reported without eligible chronological pairs.",
+  "date_specific_rates": {
+    "source": "paper_audit\\team8_data\\data\\processed\\usd_treasury_history.csv",
+    "sha256": "94268DEBA502A8DDABA81B120C8ADFD49B59D87D459056DD4AA407D9F0879F0E",
+    "selection": "latest curve date <= observation date"
+  },
+  "inputs": {
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-07-09\\hg_futures_option_bid_ask.csv": "A0D53F64C724B23ECB306EBAE3E5F1D007B0C37A5AC6A59F6AF936EA37D037FA",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-07-10\\hg_futures_option_bid_ask.csv": "B2F3FADF5322B83EC06C424FEB7D148F58B23AAA46A5C53CC9948A26A5AF41F5",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-07-20\\hg_futures_option_bid_ask.csv": "11FD2DA3360E91A1CA0E883B39EB4D1CC7D9328363B852EADBD40B586ED46553",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-07-31\\hg_futures_option_bid_ask.csv": "926ECE66CF3EFA9957B0C4557CB4D47CADD37A158BEF15D7CE9A089541639DB5",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-08-03\\hg_futures_option_bid_ask.csv": "008E721F35DA5C4EF03831FFD09EB9FB3C9D5DD93905E1DECF7FB88AF00499B5",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-08-12\\hg_futures_option_bid_ask.csv": "EDCA1E5F142A293816E6E0A5A0349BDF1C30B1B1523EA157726E0BA7DED7E91C",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-08-21\\hg_futures_option_bid_ask.csv": "1144737837EB4B677C871A0E58D00FFB746EF2DA2B0E17B87CAEA7847607A6AC",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-08-31\\hg_futures_option_bid_ask.csv": "D88946EC64508AD78B4228C2D41698723B324E51EACAA1FE3F8A6AF72FCF9846",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-09-01\\hg_futures_option_bid_ask.csv": "9D53546FF8DF838153261AD9DB159A390AB660ACD0A2B7E28E6AFC0672E90FE2",
+    "data\\raw\\ib_local\\copper_rolling_20260709_20260902_budget112\\2026-09-02\\hg_futures_option_bid_ask.csv": "41820DF9832F2A4D13795DDD841C0CECC24C518DE6CA4548F7B3291A6531525A"
+  },
+  "files": {
+    "historical_coverage.csv": "05024964D764F08A4BBDE4024EFCB471348282E8377558EF0AF1EB55314DBE4F"
+  }
+}

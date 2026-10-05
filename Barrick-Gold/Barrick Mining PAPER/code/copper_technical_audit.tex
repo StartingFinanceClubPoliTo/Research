@@ -1,0 +1,62 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{newtxtext,newtxmath}
+\usepackage[margin=2cm]{geometry}\usepackage{booktabs,graphicx,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue}\title{Copper Extension: Technical Audit}\author{Starting Finance Club PoliTo Research}\date{5 October 2026}
+\begin{document}\maketitle
+\section{Evidence contract}
+This supplement records the copper extension of the Paper revised on 5 October. The 7 September gold audit and historical gold OOS are retained as separate experiments. Derived parameter and forward-anchor aggregates permit offline paired replay; licensed raw option rows remain local. Every admitted manifest records input and output hashes. The four gold-only finite-horizon medians are checked against the frozen audited Paper results, rather than combining copper with the original thesis calibration.
+
+The copper acquisition budget was fixed at 112 actual OTM contract locations per selected date over 75--250 DTE. Ten selected dates return 912 quote rows. The filters require both quote ages at most 120 seconds and relative option spread at most 20\%. Admission requires 64 eligible observations and three expiries. Failed dates are quality exclusions, not proof of missing historical market data. The 21 remaining gold reference dates were not requested in this pilot.
+
+\begin{center}\begin{tabular}{lrrrl}\toprule
+Date & Returned & Eligible & Expiries & Admitted \\\midrule
+9 July & 100 & 75 & 5 & Yes \\
+10 July & 104 & 53 & 5 & No \\
+20 July & 79 & 74 & 5 & Yes \\
+31 July & 75 & 18 & 2 & No \\
+3 August & 73 & 41 & 5 & No \\
+12 August & 88 & 82 & 6 & Yes \\
+21 August & 100 & 86 & 6 & Yes \\
+31 August & 97 & 87 & 6 & Yes \\
+1 September & 97 & 65 & 6 & Yes \\
+2 September & 99 & 86 & 6 & Yes \\
+\bottomrule\end{tabular}\end{center}
+
+\section{Model and temporal validation}
+American options on HG futures are inverted through a 600-step constant-volatility CRR tree and mapped to equivalent European observations. The 300-step comparison measures tree discretization, not early-exercise correctness under stochastic volatility and jumps. Four European forward models use actual matched futures and a dated Treasury NSS curve. Current 2 September calibration uses 86 observations with no reserved-strike interpolation promoted to temporal OOS.
+
+Rolling origins are fitted independently and frozen before next-admitted-date scoring. Latent states advance over 11, 23, 9, 10, 1 and 1 calendar days. Target forward/rate conditioning makes the exercise a repricing comparison. Equal-date $R^2=1-\sum_t MSE_{m,t}/\sum_t MSE_{b,t}$ differs from pooled scoring. The published RMSE is mean daily RMSE. All four models share 480 targets; observed-IV persistence has 375 supported targets inside its origin interpolation hull.
+\begin{center}\begin{tabular}{lrrr}\toprule
+Model & Rolling RMSE (bp) & Rolling $R^2_p$ & Fixed-origin $R^2_p$ \\\midrule
+Black--76 & 106.4793 & $-1.2942$ & $-0.3454$ \\
+Heston & 71.4577 & $-0.4223$ & $-0.2824$ \\
+Bates & 70.4899 & $-0.3886$ & $0.1929$ \\
+Bates--Hawkes & 67.6521 & $-0.2083$ & $0.1819$ \\
+\bottomrule\end{tabular}\end{center}
+Fixed-origin calibration remains on 9 July and is tested on the same six target dates, with 333 persistence-supported observations. It changes the question and support; its two positive point estimates do not establish a winner or independent replication. Six target dates do not justify a strong inferential claim.
+
+\section{Operating mapping and paired evidence}
+Lumwana 100\%, Zald\'ivar 50\% and Jabal Sayid 50\% use Q2 attributable sales of 40, 9 and 5 kt, respectively; unit CoS is 3.14, 4.89 and 2.63 USD/lb. These sales are already ownership-adjusted. The exact conversion is 2204.6226218488 lb/t. The quarterly USD-million margin is $2204.6226218488\sum_i s_i(P_t-c_i)/1000$. Costs contain depreciation. Reported capex is preserved as a source fact rather than deducted a second time through an unreconciled operator.
+
+Q2 volumes and costs are frozen for 20 quarters. The delivery-based futures curve interpolates three anchors and stays flat after 0.728 years; it is not a physical spot forecast. The five-year primary run has no terminal value, uses 8,192 paths and pairs gold-only and combined values under identical audited gold inputs and discount paths. Commodity paths are independent in the primary run. Signed perpetuity and terminal-score correlation $\pm0.5$ are sensitivity assumptions.
+\begin{center}\begin{tabular}{lrrrr}\toprule
+Model & Gold (bn) & Gold+Cu (bn) & Increment (bn) & MC SE (mn) \\\midrule
+Black benchmark & 14.857 & 17.484 & 2.627 & 23.0 \\
+Heston & 14.847 & 17.465 & 2.618 & 39.4 \\
+Bates & 14.799 & 17.466 & 2.666 & 40.4 \\
+Bates--Hawkes & 14.795 & 17.438 & 2.643 & 37.0 \\
+\bottomrule\end{tabular}\end{center}
+The increment is calculated path by path after the common tax/reinvestment mapping. Simulation standard errors are not intervals for economic value. Parameter, operating, basis and accounting uncertainty are not included. Existing gold signed-terminal medians cannot be combined with these finite-horizon means.
+
+\section{Measure audit: gold and copper}
+Option calibration is under $\mathbb Q$ using deterministic rates. The corporate simulations instead define an artificial law $\mathcal R$, using transferred coefficients, independent WACC shocks and assumed mean schedules. No Radon--Nikodym density, physical price/variance premium or jump-intensity/mark-law tilt is estimated. No $\mathbb Q\to\mathbb P$ change is performed. Reanchoring GLD to gold does not retain a traded gold pricing law. Similarly, interpolating copper futures across delivery dates does not specify a fixed-delivery future's time drift.
+
+Under the deterministic-rate pricing convention a fixed-delivery future has zero drift, while interest discounts option premia. The scenario schedule's nonzero drift is used only for an imposed mean path. Numerical tests with nonzero jump moments confirm unit expected innovations under the frozen-step compensated simulation for GBM, Heston, Bates and Hawkes. The compensator is $\lambda(\mathbb{E}[e^J]-1)$, using the simulated mark law; the Hawkes step uses its left intensity. These tests verify implementation, not a physical measure. WACC is not a short rate or a pricing kernel. A risk-free substitution alone does not repair the corporate claim. The CLI rejects unimplemented physical or corporate risk-neutral valuation laws and exports this boundary in the run manifest. All 22 Paper tests pass; the measure-audit replay reproduces the previous summary and quantile tables exactly.
+
+\section{Permitted reading and replay}
+The extension fills copper's operating omission. It does not estimate mine expansion, reserves, closure obligations, corporate FCFF, debt allocation, economic benefit sharing or diluted shares. An attributable flow must not receive another deduction for the same partners' interests. Consolidated financial claims require restatement before an equity bridge. The inherited gold vector still moves from company actuals to an eight-mine forecast; this scope break is disclosed.
+
+The public Paper entry point supports \texttt{python main.py --copper --output-dir <new-directory>}. It reads the frozen derived copper bundle and the audited 7 September gold configuration, checks evidence hashes and refuses to overwrite an existing result. Raw-market reacquisition and historical calibration are documented in the companion UNIFICATO code. Offline replay establishes computational reproducibility of the frozen scenario, not independent verification of licensed input quotes.
+
+\noindent Sources: Barrick Annual Report 2025; Q2 2026 Mine Statistics, copper table p. 8; frozen IB API acquisition and dated Treasury curves. Public code and aggregate evidence: \url{https://github.com/StartingFinanceClubPoliTo/Research/tree/main/Barrick-Gold/Barrick%20Mining%20PAPER}.
+\end{document}

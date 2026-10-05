@@ -175,8 +175,10 @@ mine forecasts and discounted cash flow. Unification assigns each variable to
 one source authority and links the layers through explicit date, unit, measure
 and accounting contracts. Its central design choice is separation: Black--Scholes/
 GBM, Heston, Bates--Poisson and Full Bates--Hawkes are four Team 8 engines for
-the \emph{gold-price layer only}. They do not model Barrick's production or
-costs. Barrick's Q1--Q2 2026 actual production and Cost of Sales form the
+the \emph{gold-price layer} in the frozen baseline. A separate extension fits
+the same model families to copper options and adds three attributable copper
+mines. The price models do not model production or costs.
+Barrick's Q1--Q2 2026 actual production and Cost of Sales form the
 current stub; Team~4 forecasts begin at Q3 and remain explicitly labelled.
 The unified tax, growth, ROIC, stochastic WACC, terminal-value and
 equity-bridge adaptation is common. Team~4's legacy NSS, IV, GBM and
@@ -275,10 +277,10 @@ investment advice.}
 
 \part{Origins of the Research, Gold and Barrick}
 \input{chapters/01-introduction}
-\input{chapters/03-team-study-synthesis}
 \input{chapters/02-gold-regimes-debasement}
 \input{chapters/03-company-perimeter}
 \input{chapters/03-data-and-design}
+\input{chapters/03-team-study-synthesis}
 \input{chapters/03-current-lse-diagnostics}
 
 \part{Mathematical, Econometric and Numerical Foundations}
@@ -294,6 +296,7 @@ investment advice.}
 
 \part{Operations, Corporate Valuation, Validation and Conclusions}
 \input{chapters/10-operations-ebitda}
+\input{chapters/10-copper-evidence}
 \input{chapters/11-dcf}
 \input{chapters/12-unified-experiment}
 \input{chapters/14-discussion-conclusion}
@@ -331,6 +334,31 @@ Barrick Mining Corporation, \emph{Barrick Announces Name Change to Barrick Minin
 
 \bibitem{barrick-about-2026}
 Barrick Mining Corporation, \emph{About Barrick}, corporate profile accessed 27 August 2026, \href{https://www.barrick.com/English/about/default.aspx}{official company profile}.
+
+\bibitem{barrick-ar-2025}
+Barrick Mining Corporation, \emph{Annual Report 2025}, MD\&A (prepared
+4 February 2026), Production Costs, mine tables and Notes 2, 4 and 35,
+\href{https://s25.q4cdn.com/322814910/files/doc_financial/annual_reports/2025/Barrick_Annual_Report_2025.pdf}{official annual report}.
+
+\bibitem{barrick-mine-stats-2026}
+Barrick Mining Corporation, \emph{Q1 and Q2 2026 Mine Statistics},
+\href{https://s25.q4cdn.com/322814910/files/doc_financial/quarterly_results/2026/q1/Barrick_Q1_2026_Mine_Stats.pdf}{Q1 tables}
+and \href{https://s25.q4cdn.com/322814910/files/doc_financial/quarterly_results/2026/q2/Barrick_Q2_2026_Mine_Stats.pdf}{Q2 tables}.
+
+\bibitem{ib-historical-limitations}
+Interactive Brokers, \emph{TWS API: Historical Data Limitations},
+\href{https://interactivebrokers.github.io/tws-api/historical_limitations.html}{API historical-data documentation},
+accessed 3 October 2026. Availability is supplemented by actual read-only
+historical bid/ask retrievals, whose local manifests retain timestamps and hashes.
+
+\bibitem{barrick-ipo-2026}
+Barrick Mining Corporation, \emph{Barrick Advances IPO of North American Gold
+Assets, Announces Executive Appointments}, 28 April 2026,
+\href{https://www.barrick.com/English/news/news-details/2026/barrick-advances-IPO-of-north-american-gold-assets/default.aspx}{official release}.
+
+\bibitem{barrick-q2-release-2026}
+Barrick Mining Corporation, \emph{Barrick Reports Second Quarter 2026 Results},
+10 August 2026, \href{https://www.barrick.com/English/news/news-details/2026/q2-2026-results/default.aspx}{official release}.
 
 \bibitem{imf-war-inflation-2022}
 International Monetary Fund, \emph{War Dims Global Economic Outlook as Inflation Accelerates}, 19 April 2022, \href{https://www.imf.org/en/Blogs/Articles/2022/04/19/blog-weo-war-dims-global-economic-outlook-as-inflation-accelerates}{IMF analysis}.

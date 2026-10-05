@@ -6,13 +6,19 @@
 \subsection{Overview}
 The accurate valuation of mining assets fundamentally relies on the precise estimation of future Cost of Sales (CoS). However, projecting these operational costs over a medium term horizon, specifically five years (or 20 quarters), presents significant statistical hurdles, most notably the management of variance within highly volatile commodities markets. When applied to isolated mining operations, standard econometric models frequently generate confidence intervals that are prohibitively wide for practical financial modeling, occasionally yielding illogical outputs such as negative costs or exponential growth trajectories. To mitigate these structural limitations, this paper introduces a hybrid Log-Space SARIMA framework.
 
-Complementary to the cost side, the second pillar of operational profitability is gold production, the primary driver of the firm's revenue stream. Forecasting total output as a single time series is unsatisfactory: the heterogeneity of individual assets and the compounding of mine-specific shocks degrade the signal-to-noise ratio and inflate the resulting confidence intervals. To address this, we adopt a bottom-up physical decomposition into Ore Processed, Average Grade, and Recovery Rate, with the first two forecast through mine-level SARIMA models and the third simulated within historically observed operational bounds. Aggregate uncertainty is then evaluated using Goodman's exact variance-of-products approximation, which preserves the multiplicative structure of the production formula while avoiding the explosive variance of a naive product of confidence intervals.
+Complementary to the cost side, the second pillar of operational profitability is gold production, the primary driver of the firm's revenue stream. Forecasting total output as a single time series is unsatisfactory: the heterogeneity of individual assets and the compounding of mine-specific shocks degrade the signal-to-noise ratio and inflate the resulting confidence intervals. To address this, we adopt a bottom-up physical decomposition into Ore Processed, Average Grade, and Recovery Rate, with ore forecast through a seasonal ARIMA model, grade through a non-seasonal AR(1), and recovery simulated within historically observed operational bounds. Aggregate uncertainty is then evaluated using Goodman's exact variance-of-products approximation, which preserves the multiplicative structure of the production formula while avoiding the explosive variance of a naive product of confidence intervals.
 
 Gold price risk is deliberately outside this chapter. The operating forecasts produced here are handed to the independent Team~8 price layer and to the unified DCF only after production and Cost of Sales have been constructed. This separation prevents the historical Team~4 price demonstrator from being confused with the gold scenarios and corporate valuation used in the unified experiment.
 \subsubsection{Objective}
 The objective is to build a five-year operating contract for Barrick's production and Cost of Sales. Due to the compounding volatility inherent in the mining sector, traditional top-down forecasting models frequently generate explosive variances and operationally impossible scenarios, such as negative costs or unbounded production. To resolve these structural limitations, this chapter proposes a bottom-up model. By decomposing operating performance into geological and metallurgical drivers, the approach aims to stabilise medium-term cost and production forecasts without producing a standalone price or valuation result.
 \subsubsection{Data Sources}
-All the non-market data used in this analysis were extracted from Barrick Gold Corporation's quarterly reports, available as PDF and/or Excel files on the company's investor website. The dataset concentrates on Barrick's largest gold mines; copper operations and smaller mines were excluded because they have a negligible impact on total production and revenue for the periods considered.
+The source operating data were extracted from Barrick's quarterly reports,
+published under its former and current legal names. The frozen Team~4 gold
+module concentrates on eight mines and omits copper and other gold assets.
+That source scope does not demonstrate a negligible revenue or valuation
+contribution from the excluded assets. Section~\ref{sec:company-perimeter}
+fixes the reporting basis; Section~\ref{sec:copper-extension} separately adds
+three copper operations without modifying the original gold forecast vector.
 
 The mines included in the analysis are:
 \begin{itemize}
@@ -262,7 +268,9 @@ Before forecasting, the script conducts a correlation analysis to uncover hidden
 
 
 \paragraph{Phase 3 -- Time Series Modeling (SARIMA):}
-Given the seasonal nature of mining (e.g., wet seasons affecting haulage, scheduled winter maintenance, etc), traditional linear regressions are insufficient. The algorithm applies Seasonal AutoRegressive Integrated Moving Average (SARIMA) models to both \textit{Ore Processed} and \textit{Average Grade}. 
+The model distinguishes throughput seasonality from grade dynamics. Ore
+Processed uses SARIMA$(1,0,1)(1,0,0)_4$; Average Grade uses non-seasonal
+AR(1), equivalent to SARIMA$(1,0,0)(0,0,0)_4$.
 
 \begin{enumerate}
 \item Ore Processed: the model has a parameter specification of \textit{SARIMA} $(1,0,1)$x$(1,0,0,4)$. 
@@ -272,10 +280,10 @@ Given the seasonal nature of mining (e.g., wet seasons affecting haulage, schedu
         \item The seasonal autoregressive dependence on the same quarter from the previous year (seasonal AR=1, $s=4$).
     \end{itemize}
 
-\item Average Grade: the model has a parameter specification of \textit{SARIMA} $(1,0,0)$x$(0,0,0,4)$. 
+\item Average Grade: AR(1), equivalently \textit{SARIMA} $(1,0,0)$x$(0,0,0,4)$.
     \begin{itemize}
         \item The autoregressive dependence on the immediately preceding quarter (non-seasonal AR=1).
-        \item The moving average (MA=1) "shock" recovery.
+        \item No moving-average or seasonal component ($q=P=D=Q=0$).
     \end{itemize}
 \end{enumerate}
 
@@ -332,7 +340,13 @@ In this way, Goodman's formula can be rearrange as follow:
 CI_{upper} = \mathbb{E}_{prod} + Z_{score} \cdot \sigma_{prod}
 \end{equation}
 
-This Goodman equation assumes independent variables, and we saw from subsection 3.2.2 that they are not. However, because we don't have a lot of historical data ($\approx$ 28 quarters each mine), computing covariances could create severe noise. Otherwise, a negative correlation naturally stabilizes the final product, producing a wider margin of error and generating a conservative bound.
+This Goodman equation assumes independence, although the reported driver
+correlations violate it. Team~4 omits estimated cross-covariances because
+approximately 28 quarters per mine provide a short sample. Negative
+ore--grade dependence may reduce product variance relative to independence;
+it does not prove conservative interval coverage. These are the source's
+80\% operating bands, not an empirically validated bound or the valuation's
+price/WACC quantiles.
 
 \textit{Note:} Recovery rate is generated using a uniform distribution. Since it does not have CI, its variance is computed taking the historical maximum has the upper bound. In the equations $Z_{score} = 1.282$, corresponding to the $80\%$ confidence level used throughout this chapter.
 
